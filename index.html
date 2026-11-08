@@ -35,23 +35,19 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
   color:var(--body); line-height:1.7; 
-  background: linear-gradient(135deg, #f0f7fc 0%, #f4fbf0 50%, #ffffff 100%);
+  background: linear-gradient(135deg, rgba(240,247,252,.92) 0%, rgba(244,251,240,.92) 50%, rgba(255,255,255,.94) 100%);
   font-size:15px; overflow-x:hidden;
   position: relative;
 }
 
-/* 全站底印水印 (Logo) */
+/* 全站底印水印：將客廳情景照作為全站溫馨半透明底印 */
 body::before {
   content: "";
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(500px, 85vw);
-  height: min(500px, 85vw);
-  background: url('assets/logo_watermark.png') no-repeat center center;
-  background-size: contain;
-  opacity: 0.04;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('assets/livingroom_watermark.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.06; /* 調整透明度，既有情境又不影響文字閱讀 */
   pointer-events: none;
   z-index: 0;
 }
@@ -162,7 +158,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
 .hero p{font-size:15px;margin-bottom:20px;color:var(--body)}
 
-/* 情境照片展示框（融合圖四客廳情境照） */
+/* 宣傳車動態影片展示框（回歸首頁右側封面） */
 .hero-photo-wrapper {
   position: relative;
   padding: 6px;
@@ -176,7 +172,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
   overflow: hidden;
   background: #fff;
 }
-.hero-photo img{
+.hero-photo video{
   width: 100%;
   height: auto;
   display: block;
@@ -383,10 +379,10 @@ footer p{margin-bottom:8px;color:#fff}
       </div>
     </div>
     <div>
-      <!-- 融合圖四客廳情境照展示框 -->
+      <!-- 宣傳車動態影片展示框（回歸首頁封面右側） -->
       <div class="hero-photo-wrapper">
         <div class="hero-photo">
-          <img src="assets/hero_livingroom.jpg" alt="Weclean 專業潔淨現代家居情境">
+          <video src="assets/company_van_moving.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
     </div>
