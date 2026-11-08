@@ -124,7 +124,7 @@ h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
 
 .hero p{font-size:17px;margin-bottom:24px;color:var(--body)}
 
-/* 宣傳車：行駛浮動感動畫特效 */
+/* 宣傳車：動態影片展示框 */
 .hero-photo-wrapper {
   position: relative;
   padding: 10px;
@@ -147,14 +147,10 @@ h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
   overflow: hidden;
   background: #fff;
 }
-.hero-photo img{
+.hero-photo video{
   width: 100%;
   height: auto;
   display: block;
-  transition: transform .5s ease;
-}
-.hero-photo-wrapper:hover img {
-  transform: scale(1.03);
 }
 
 /* 數字滾動信任標籤 */
@@ -263,7 +259,7 @@ input[type=range]::-webkit-slider-thumb:hover{background:var(--green-dark);trans
 .q-line.total{margin-top:auto;border-top:2px solid rgba(255,255,255,.3);border-bottom:none;padding-top:16px}
 .q-line.total b{font-size:26px;color:var(--green)}
 
-/* 嵌入式冷氣提示小字隱藏點綴 */
+/* 嵌入式冷氣提示小字 */
 .embed-note {
   margin-top: 14px;
   font-size: 11px;
@@ -348,10 +344,10 @@ footer p{margin-bottom:10px;color:#fff}
       </div>
     </div>
     <div>
-      <!-- 宣傳車：行駛浮動特效展示區 -->
+      <!-- 宣傳車：動態影片展示框 -->
       <div class="hero-photo-wrapper">
         <div class="hero-photo">
-          <img src="assets/company_van.jpg" alt="Weclean 專業宣傳車團隊上門服務">
+          <video src="assets/company_van_moving.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
     </div>
@@ -471,7 +467,7 @@ footer p{margin-bottom:10px;color:#fff}
           </div>
         </div>
 
-        <!-- 3. 冷氣機款式與數量分配（多選各別分配） -->
+        <!-- 3. 冷氣機款式與數量分配 -->
         <div class="field">
           <label>冷氣機款式分配（請填寫各款數量，總和需等於總部數）</label>
           <div class="types-grid">
@@ -494,7 +490,7 @@ footer p{margin-bottom:10px;color:#fff}
           </div>
         </div>
 
-        <!-- 4. 附加服務（每項提供 1 至 5 部數量選擇） -->
+        <!-- 4. 附加服務 -->
         <div class="field">
           <label>附加服務選擇（可選 1 至 5 部）</label>
           
@@ -588,7 +584,7 @@ footer p{margin-bottom:10px;color:#fff}
 </footer>
 
 <script>
-// 數字滾動特效（從 0 滾動到 15674）
+// 數字滾動特效
 function animateCounter() {
   const target = 15674;
   const duration = 2000; 
@@ -609,7 +605,7 @@ function animateCounter() {
 }
 window.addEventListener('DOMContentLoaded', animateCounter);
 
-// 報價計算器邏輯（支援滾輪滑動與多款冷氣分配、附加服務數量）
+// 報價計算器邏輯
 const PLAN_TYPE = document.getElementById('planType');
 const AC_RANGE = document.getElementById('acRange');
 const SLIDER_VAL = document.getElementById('sliderVal');
@@ -633,7 +629,6 @@ const PRICES = {
   planB: { 1: 730, 2: 1200, 3: 1500, 4: 1850, 5: 2050, 6: 2300, 7: 2550, 8: 2800 }
 };
 
-// 當滾輪滑動時，預設把部數分配到分體機
 AC_RANGE.addEventListener('input', (e) => {
   const val = parseInt(e.target.value);
   SLIDER_VAL.textContent = val + ' 部';
@@ -645,7 +640,6 @@ AC_RANGE.addEventListener('input', (e) => {
   update();
 });
 
-// 監聽所有輸入與變動
 [PLAN_TYPE, TYPE_SPLIT, TYPE_WINDOW, TYPE_CEILING, TYPE_CENTRAL, ADD_OUTDOOR, ADD_BATH, ADD_WASHING, ADD_KITCHEN, AREA].forEach(el => {
   el.addEventListener('input', update);
   el.addEventListener('change', update);
@@ -661,7 +655,6 @@ function update() {
   const c = parseInt(TYPE_CEILING.value) || 0;
   const ce = parseInt(TYPE_CENTRAL.value) || 0;
 
-  // 附加服務數量與價格
   const addons = [
     { name: '室外機清洗', qty: parseInt(ADD_OUTDOOR.value) || 0, price: 80 },
     { name: '浴室寶/抽氣扇', qty: parseInt(ADD_BATH.value) || 0, price: 280 },
@@ -682,10 +675,8 @@ function update() {
   const tunnel = parseInt(AREA.value);
   const total = base + addTotal + tunnel;
 
-  // 組裝明細
   let html = `<div class="q-line"><span>${plan==='planB'?'B計劃（銀離子防霉）':'A計劃（深層清洗）'} × ${total}部</span><b>$${base}</b></div>`;
   
-  // 顯示款式細節
   let typesDetail = [];
   if (s > 0) typesDetail.push(`分體機${s}部`);
   if (w > 0) typesDetail.push(`窗口機${w}部`);
@@ -700,7 +691,6 @@ function update() {
   html += `<div class="q-line total"><span>參考總價</span><b>$${total}</b></div>`;
   QLINES.innerHTML = html;
 
-  // 產出 WhatsApp 預約文字
   let msg = `你好，我想預約 Weclean 服務（包30日後售後無憂）：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${total} 部\n`;
   if (typesDetail.length > 0) msg += `• 機型分佈：${typesDetail.join('、')}\n`;
   addons.forEach(a => {
