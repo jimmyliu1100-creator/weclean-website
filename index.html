@@ -25,7 +25,7 @@
   --white:#fff;
   --shadow-sm:0 2px 8px rgba(15,95,166,.07);
   --shadow:0 8px 28px rgba(15,95,166,.11);
-  --shadow-lg:0 18px 50px rgba(15,95,166,.16);
+  --shadow-lg:0 20px 60px rgba(15,95,166,.18);
   --r:16px; --r-lg:24px;
   --wa:#25D366;
   --fb:#1877F2;
@@ -35,7 +35,31 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
   color:var(--body); line-height:1.75; background:var(--white); font-size:16px; overflow-x:hidden;
+  position: relative;
 }
+
+/* 全站底印水印 */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(600px, 90vw);
+  height: min(600px, 90vw);
+  background: url('assets/logo_watermark.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.04; /* 半透明度，不影響文字 */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 確保所有內容在水印上方 */
+nav, header, div, section, footer {
+  position: relative;
+  z-index: 1;
+}
+
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1200px,92vw);margin:0 auto}
@@ -84,6 +108,33 @@ h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
 .hero p{font-size:17px;margin-bottom:28px;color:var(--body)}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap}
 
+/* 宣傳車質感升級框 */
+.hero-photo-wrapper {
+  position: relative;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--blue-light), var(--green));
+  border-radius: calc(var(--r-lg) + 4px);
+  box-shadow: var(--shadow-lg);
+  transition: transform .3s ease;
+}
+.hero-photo-wrapper:hover {
+  transform: translateY(-6px);
+}
+.hero-photo{
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #fff;
+}
+.hero-photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .5s ease;
+}
+.hero-photo-wrapper:hover img {
+  transform: scale(1.03);
+}
+
 /* 社會信任按鈕列 */
 .social-proof-bar{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
 .social-btn{
@@ -117,7 +168,8 @@ h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
 /* ============ 屋苑實拍紀錄 ============ */
 .works-sec{background:var(--blue-softer)}
 .works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.work-card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.work-card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:.2s}
+.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .work-card img{width:100%;height:220px;object-fit:cover}
 .work-info{padding:16px}
 .work-info b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
@@ -197,9 +249,11 @@ footer p{margin-bottom:10px;color:#fff}
       </div>
     </div>
     <div>
-      <!-- 置頂公司宣傳車實拍 -->
-      <div class="hero-photo" style="border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);">
-        <img src="assets/company_van.jpg" alt="Weclean 專業宣傳車團隊上門服務">
+      <!-- 質感升級的宣傳車展示區 -->
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo">
+          <img src="assets/company_van.jpg" alt="Weclean 專業宣傳車團隊上門服務">
+        </div>
       </div>
     </div>
   </div>
