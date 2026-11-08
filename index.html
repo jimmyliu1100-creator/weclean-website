@@ -66,16 +66,28 @@ a{color:inherit;text-decoration:none}
 section{padding:50px 0}
 h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
-/* ============ 導航（手機置頂優化） ============ */
+/* ============ 導航 ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:8px}
-.brand{display:flex;flex-direction:column;flex-shrink:0}
-.brand b{font-size:15px;color:var(--blue);font-weight:900;line-height:1.2}
-.brand span{font-size:10px;color:var(--muted);white-space:nowrap}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:8px}
+
+.brand-logo{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.brand-logo img{
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+.brand-logo .brand-txt{
+  display:flex;flex-direction:column;
+}
+.brand-logo .brand-txt b{font-size:15px;color:var(--blue);font-weight:900;line-height:1.2}
+.brand-logo .brand-txt span{font-size:10px;color:var(--muted);white-space:nowrap}
+
 .nav-links{display:flex;gap:12px;align-items:center}
 .nav-links a{font-size:13px;font-weight:500;color:var(--body);transition:.2s}
 .nav-cta{display:flex;align-items:center;gap:4px;flex-shrink:0}
@@ -88,12 +100,42 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .btn-fb{background:var(--fb);color:#fff}
 .btn-ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #df3484 45%, #7624cb 90%);color:#fff}
 
-/* ============ HERO 區塊（手機優先排版） ============ */
+/* ============ HERO 區塊 ============ */
 .hero{
-  padding:100px 0 50px;
+  padding:110px 0 50px;
   background:radial-gradient(1000px 500px at 90% 0%, rgba(156,203,74,.18), transparent 60%), radial-gradient(800px 400px at 10% 20%, rgba(27,124,201,.12), transparent 50%);
 }
 .hero-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
+
+.hero-logo-card{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--blue-pale);
+  padding: 14px 18px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+}
+.hero-logo-card img{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.hero-logo-card .h-txt h2{
+  font-size: 18px;
+  color: var(--blue-dark);
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+.hero-logo-card .h-txt p{
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0;
+}
+
 .badge-top{
   display:inline-flex;gap:6px;align-items:center;background:#fff;border:1.5px solid var(--green);
   padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;color:var(--blue-dark);margin-bottom:14px;
@@ -120,7 +162,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
 .hero p{font-size:15px;margin-bottom:20px;color:var(--body)}
 
-/* 宣傳車影片框（手機完美適配） */
+/* 情境照片展示框（融合圖四客廳情境照） */
 .hero-photo-wrapper {
   position: relative;
   padding: 6px;
@@ -134,7 +176,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
   overflow: hidden;
   background: #fff;
 }
-.hero-photo video{
+.hero-photo img{
   width: 100%;
   height: auto;
   display: block;
@@ -180,7 +222,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .social-btn.fb{background:var(--fb)}
 .social-btn.ig{background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)}
 
-/* 核心保證條（手機單欄縮編） */
+/* 核心保證條 */
 .core-features{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px 0}
 .cf-grid{display:grid;grid-template-columns:1fr;gap:10px;text-align:center}
 .cf-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px}
@@ -209,7 +251,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .work-info b{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .work-info span{font-size:11px;color:var(--muted)}
 
-/* ============ 報價器（手機完全自適應單欄） ============ */
+/* ============ 報價器 ============ */
 .quote-sec{background:transparent}
 .quote-box{background:rgba(255,255,255,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
 .q-form{padding:20px}
@@ -218,20 +260,17 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px;color:var(--ink)}
 .field select{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;background:#fff}
 
-/* 滑動滾輪（Range Slider） */
 .slider-container{background:var(--blue-softer);padding:14px;border-radius:10px;border:1px solid var(--line)}
 .slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:700;color:var(--blue);font-size:14px}
 .slider-header span#sliderVal{font-size:18px;color:var(--green-dark)}
 input[type=range]{width:100%;height:6px;border-radius:3px;background:var(--line);outline:none;-webkit-appearance:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--blue);cursor:pointer}
 
-/* 機型分配網格 */
 .types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .type-item{background:#fff;border:1.5px solid var(--line);padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
 .type-item label{font-size:12.5px;font-weight:600;color:var(--ink);margin:0}
 .type-item input[type=number]{width:46px;padding:4px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:13px}
 
-/* 附加服務數量分配行 */
 .addon-row{background:#fff;border:1.5px solid var(--line);padding:10px 12px;border-radius:8px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
 .addon-info b{font-size:13px;color:var(--ink);display:block}
 .addon-info span{font-size:11px;color:var(--muted)}
@@ -242,7 +281,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 .q-line.total{margin-top:auto;border-top:2px solid rgba(255,255,255,.3);border-bottom:none;padding-top:12px}
 .q-line.total b{font-size:22px;color:var(--green)}
 
-/* 嵌入式冷氣提示小字 */
 .embed-note {
   margin-top: 12px;
   font-size: 10.5px;
@@ -258,7 +296,6 @@ footer p{margin-bottom:8px;color:#fff}
 .footer-socials{display:flex;justify-content:center;gap:10px;margin:12px 0}
 .footer-socials a{color:#fff;background:rgba(255,255,255,.1);padding:5px 10px;border-radius:6px;font-size:12px}
 
-/* 電腦大螢幕微調 (≥ 900px 時恢復寬屏雙欄排版) */
 @media(min-width:900px){
   body{font-size:16px}
   .wrap{width:min(1200px,92vw)}
@@ -282,9 +319,12 @@ footer p{margin-bottom:8px;color:#fff}
 <!-- 導航 -->
 <nav class="nav">
   <div class="wrap nav-in">
-    <div class="brand">
-      <b>Weclean 專業清潔</b>
-      <span>24小時 · 港九新界</span>
+    <div class="brand-logo">
+      <img src="assets/logo.png" alt="Weclean 標誌">
+      <div class="brand-txt">
+        <b>Weclean 專業清潔</b>
+        <span>24小時 · 港九新界</span>
+      </div>
     </div>
     <div class="nav-links">
       <a href="#services">服務</a>
@@ -304,6 +344,15 @@ footer p{margin-bottom:8px;color:#fff}
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
+      <!-- 封面醒目 Logo 展示卡 -->
+      <div class="hero-logo-card">
+        <img src="assets/logo.png" alt="Weclean 專業清潔">
+        <div class="h-txt">
+          <h2>Weclean 專業冷氣及清潔團隊</h2>
+          <p>全港 18 區信賴首選 ｜ 明碼實價</p>
+        </div>
+      </div>
+
       <div class="badge-top"><span class="pulse"></span> 24小時服務 ｜ 港九新界 18區全覆蓋</div>
       <h1>專業冷氣清洗與<br><span>全方位家居清潔服務</span></h1>
       
@@ -334,10 +383,10 @@ footer p{margin-bottom:8px;color:#fff}
       </div>
     </div>
     <div>
-      <!-- 宣傳車：動態影片展示框 -->
+      <!-- 融合圖四客廳情境照展示框 -->
       <div class="hero-photo-wrapper">
         <div class="hero-photo">
-          <video src="assets/company_van_moving.mp4" autoplay muted loop playsinline></video>
+          <img src="assets/hero_livingroom.jpg" alt="Weclean 專業潔淨現代家居情境">
         </div>
       </div>
     </div>
@@ -436,7 +485,6 @@ footer p{margin-bottom:8px;color:#fff}
     <div class="quote-box">
       <div class="q-form">
         
-        <!-- 1. 選擇冷氣清洗計劃 -->
         <div class="field">
           <label>選擇冷氣清洗計劃</label>
           <select id="planType">
@@ -445,7 +493,6 @@ footer p{margin-bottom:8px;color:#fff}
           </select>
         </div>
 
-        <!-- 2. 滾輪調校冷氣總部數 -->
         <div class="field">
           <div class="slider-container">
             <div class="slider-header">
@@ -457,7 +504,6 @@ footer p{margin-bottom:8px;color:#fff}
           </div>
         </div>
 
-        <!-- 3. 冷氣機款式與數量分配 -->
         <div class="field">
           <label>冷氣機款式分配（總和需等於總部數）</label>
           <div class="types-grid">
@@ -480,7 +526,6 @@ footer p{margin-bottom:8px;color:#fff}
           </div>
         </div>
 
-        <!-- 4. 附加服務 -->
         <div class="field">
           <label>附加服務選擇（可選 1 至 5 部）</label>
           
@@ -530,7 +575,6 @@ footer p{margin-bottom:8px;color:#fff}
 
         </div>
 
-        <!-- 5. 地區選擇 -->
         <div class="field">
           <label>地區選擇</label>
           <select id="area">
@@ -549,7 +593,6 @@ footer p{margin-bottom:8px;color:#fff}
         </div>
         <div style="font-size:11.5px;opacity:.8;margin-bottom:10px">✨ 24小時服務 ｜ 港九新界 ｜ 無隱藏式收費</div>
         
-        <!-- 嵌入式冷氣特別收費小提示 -->
         <div class="embed-note">
           💡 <b>溫馨提示：</b>如屬「嵌入式 / 隱藏式分體冷氣」，因施工較繁複需額外特別收費，預約時會由師傅另行報價。
         </div>
@@ -574,7 +617,6 @@ footer p{margin-bottom:8px;color:#fff}
 </footer>
 
 <script>
-// 數字滾動特效
 function animateCounter() {
   const target = 15674;
   const duration = 2000; 
@@ -595,7 +637,6 @@ function animateCounter() {
 }
 window.addEventListener('DOMContentLoaded', animateCounter);
 
-// 報價計算器邏輯
 const PLAN_TYPE = document.getElementById('planType');
 const AC_RANGE = document.getElementById('acRange');
 const SLIDER_VAL = document.getElementById('sliderVal');
