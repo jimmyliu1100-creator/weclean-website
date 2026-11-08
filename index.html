@@ -2,7 +2,7 @@
 <html lang="zh-HK">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Weclean 專業清潔及冷氣清洗服務 | 24小時服務 港九新界 無隱藏式收費</title>
 <meta name="description" content="Weclean 專業冷氣深層清洗、A/B計劃、家居清潔與滅蟲服務。24小時服務，港九新界18區全覆蓋，明碼實價，無隱藏式收費。">
 <link rel="icon" href="assets/logo_icon.png">
@@ -34,9 +34,9 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
-  color:var(--body); line-height:1.75; 
+  color:var(--body); line-height:1.7; 
   background: linear-gradient(135deg, #f0f7fc 0%, #f4fbf0 50%, #ffffff 100%);
-  font-size:16px; overflow-x:hidden;
+  font-size:15px; overflow-x:hidden;
   position: relative;
 }
 
@@ -47,11 +47,11 @@ body::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(650px, 90vw);
-  height: min(650px, 90vw);
+  width: min(500px, 85vw);
+  height: min(500px, 85vw);
   background: url('assets/logo_watermark.png') no-repeat center center;
   background-size: contain;
-  opacity: 0.045;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -60,90 +60,77 @@ nav, header, div, section, footer {
   z-index: 1;
 }
 
-img{max-width:100%;display:block}
+img, video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1200px,92vw);margin:0 auto}
-section{padding:80px 0}
-h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
+.wrap{width:min(1140px,90vw);margin:0 auto}
+section{padding:50px 0}
+h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
-/* ============ 導航 ============ */
+/* ============ 導航（手機置頂優化） ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px;gap:10px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:8px}
 .brand{display:flex;flex-direction:column;flex-shrink:0}
-.brand b{font-size:17px;color:var(--blue);font-weight:900;line-height:1.2}
-.brand span{font-size:11px;color:var(--muted);white-space:nowrap}
-.nav-links{display:flex;gap:18px;align-items:center}
-.nav-links a{font-size:14px;font-weight:500;color:var(--body);transition:.2s}
-.nav-links a:hover{color:var(--blue)}
-.nav-cta{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.brand b{font-size:15px;color:var(--blue);font-weight:900;line-height:1.2}
+.brand span{font-size:10px;color:var(--muted);white-space:nowrap}
+.nav-links{display:flex;gap:12px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--body);transition:.2s}
+.nav-cta{display:flex;align-items:center;gap:4px;flex-shrink:0}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:5px;
-  padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;border:none;cursor:pointer;transition:.2s;white-space:nowrap;
+  display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:none;cursor:pointer;transition:.2s;white-space:nowrap;
 }
 .btn-wa{background:var(--wa);color:#fff}
-.btn-wa:hover{opacity:.9}
 .btn-primary{background:linear-gradient(135deg, var(--blue), var(--blue-light));color:#fff}
-.btn-primary:hover{opacity:.95}
 .btn-fb{background:var(--fb);color:#fff}
 .btn-ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #df3484 45%, #7624cb 90%);color:#fff}
 
-/* ============ HERO ============ */
+/* ============ HERO 區塊（手機優先排版） ============ */
 .hero{
-  padding:130px 0 80px;
+  padding:100px 0 50px;
   background:radial-gradient(1000px 500px at 90% 0%, rgba(156,203,74,.18), transparent 60%), radial-gradient(800px 400px at 10% 20%, rgba(27,124,201,.12), transparent 50%);
 }
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
 .badge-top{
-  display:inline-flex;gap:8px;align-items:center;background:#fff;border:1.5px solid var(--green);
-  padding:6px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--blue-dark);margin-bottom:20px;
+  display:inline-flex;gap:6px;align-items:center;background:#fff;border:1.5px solid var(--green);
+  padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;color:var(--blue-dark);margin-bottom:14px;
   box-shadow: var(--shadow-sm);
 }
-.pulse{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(156,203,74,0)}100%{box-shadow:0 0 0 0 rgba(156,203,74,0)}}
-.hero h1{font-size:clamp(30px,4.2vw,48px);margin-bottom:18px}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 6px rgba(156,203,74,0)}100%{box-shadow:0 0 0 0 rgba(156,203,74,0)}}
+.hero h1{font-size:clamp(26px, 7vw, 42px);margin-bottom:14px}
 .hero h1 span{background:linear-gradient(135deg, var(--blue), var(--green-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
 /* 特別強調：無隱藏式收費 */
 .highlight-price-tag {
   display: inline-block;
   background: linear-gradient(135deg, #FFF8E7, #FFF3CD);
-  border: 2px solid #FFC107;
+  border: 1.5px solid #FFC107;
   color: #B78103;
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-size: clamp(14px, 4vw, 18px);
   font-weight: 900;
-  padding: 8px 16px;
-  border-radius: 12px;
-  margin: 10px 0 16px 0;
-  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.25);
-  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin: 8px 0 14px 0;
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2);
 }
 
-.hero p{font-size:17px;margin-bottom:24px;color:var(--body)}
+.hero p{font-size:15px;margin-bottom:20px;color:var(--body)}
 
-/* 宣傳車：動態影片展示框 */
+/* 宣傳車影片框（手機完美適配） */
 .hero-photo-wrapper {
   position: relative;
-  padding: 10px;
+  padding: 6px;
   background: linear-gradient(135deg, var(--blue-light), var(--green));
-  border-radius: calc(var(--r-lg) + 4px);
-  box-shadow: var(--shadow-lg);
-  animation: carFloat 4s ease-in-out infinite;
-  transition: transform .3s ease;
-}
-@keyframes carFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-.hero-photo-wrapper:hover {
-  animation-play-state: paused;
-  transform: translateY(-10px) scale(1.01);
+  border-radius: calc(var(--r) + 2px);
+  box-shadow: var(--shadow);
+  width: 100%;
 }
 .hero-photo{
-  border-radius: var(--r-lg);
+  border-radius: var(--r);
   overflow: hidden;
   background: #fff;
 }
@@ -155,135 +142,138 @@ h1,h2,h3{color:var(--ink);line-height:1.3;font-weight:900}
 
 /* 數字滾動信任標籤 */
 .live-counter-badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.9);
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
-  border: 2px solid var(--green);
-  padding: 12px 20px;
-  border-radius: 14px;
-  box-shadow: var(--shadow);
-  margin-bottom: 16px;
+  border: 1.5px solid var(--green);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
 }
 .live-counter-badge .num {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 900;
   color: var(--green-dark);
-  letter-spacing: -0.5px;
 }
 .live-counter-badge .txt {
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--ink);
-  line-height: 1.3;
+  line-height: 1.2;
 }
 .live-counter-badge .txt span {
   display: block;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 500;
   color: var(--blue);
 }
 
 /* 社會信任按鈕列 */
-.social-proof-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.social-proof-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .social-btn{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;
-  font-size:13.5px;font-weight:700;color:#fff;box-shadow:var(--shadow-sm);transition:.2s;
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
+  font-size:12px;font-weight:700;color:#fff;box-shadow:var(--shadow-sm);
 }
 .social-btn.fb{background:var(--fb)}
 .social-btn.ig{background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)}
-.social-btn:hover{transform:translateY(-2px);opacity:.9}
 
-/* 核心保證條 */
-.core-features{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:28px 0;box-shadow:var(--shadow)}
-.cf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
-.cf-item b{display:block;font-size:22px;color:var(--green);font-weight:900}
-.cf-item span{font-size:14px;opacity:.95}
+/* 核心保證條（手機單欄縮編） */
+.core-features{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px 0}
+.cf-grid{display:grid;grid-template-columns:1fr;gap:10px;text-align:center}
+.cf-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px}
+.cf-item b{color:var(--green);font-size:15px}
 
 /* ============ 服務與計劃 ============ */
-.sec-head{text-align:center;max-width:680px;margin:0 auto 46px}
-.sec-tag{background:var(--blue-pale);color:var(--blue);padding:6px 16px;border-radius:999px;font-size:12px;font-weight:700;display:inline-block;margin-bottom:12px;border:1px solid var(--line)}
-.sec-head h2{font-size:clamp(26px,3vw,34px);margin-bottom:10px}
+.sec-head{text-align:center;max-width:600px;margin:0 auto 30px}
+.sec-tag{background:var(--blue-pale);color:var(--blue);padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:8px;border:1px solid var(--line)}
+.sec-head h2{font-size:clamp(22px, 5vw, 30px);margin-bottom:6px}
+.sec-head p{font-size:14px}
 
-.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
-.srv-card{background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--shadow-sm);transition:.2s}
-.srv-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+.srv-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.srv-card{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-sm)}
 .srv-card.featured{border:2px solid var(--green);background:linear-gradient(180deg, #fff 0%, #f6fbf0 100%);}
-.srv-card h3{font-size:20px;margin-bottom:10px;color:var(--ink)}
-.srv-card p{font-size:14.5px;color:var(--muted);margin-bottom:18px}
-.price-list{background:var(--blue-softer);border-radius:12px;padding:14px;font-size:14px;margin-top:14px;border:1px solid var(--line)}
-.price-list b{display:block;color:var(--blue-dark);margin-bottom:6px}
+.srv-card h3{font-size:18px;margin-bottom:8px;color:var(--ink)}
+.srv-card p{font-size:14px;color:var(--muted);margin-bottom:12px}
+.price-list{background:var(--blue-softer);border-radius:10px;padding:12px;font-size:13px;margin-top:10px;border:1px solid var(--line);line-height:1.6}
+.price-list b{display:block;color:var(--blue-dark);margin-bottom:4px}
 
 /* ============ 屋苑實拍紀錄 ============ */
 .works-sec{background:linear-gradient(180deg, rgba(234,244,252,.5) 0%, rgba(156,203,74,.08) 100%)}
-.works-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.work-card{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:.2s}
-.work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.work-card img{width:100%;height:220px;object-fit:cover}
-.work-info{padding:16px}
-.work-info b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
-.work-info span{font-size:13px;color:var(--muted)}
+.works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.work-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.work-card img{width:100%;height:130px;object-fit:cover}
+.work-info{padding:10px}
+.work-info b{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work-info span{font-size:11px;color:var(--muted)}
 
-/* ============ 報價器 ============ */
+/* ============ 報價器（手機完全自適應單欄） ============ */
 .quote-sec{background:transparent}
-.quote-box{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);border:1px solid var(--line);display:grid;grid-template-columns:1.2fr 0.8fr;overflow:hidden}
-.q-form{padding:36px}
-.q-sum{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:36px;display:flex;flex-direction:column}
-.field{margin-bottom:24px}
-.field label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;color:var(--ink)}
-.field select{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:8px;font-size:15px;background:#fff}
+.quote-box{background:rgba(255,255,255,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
+.q-form{padding:20px}
+.q-sum{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px;display:flex;flex-direction:column}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px;color:var(--ink)}
+.field select{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;background:#fff}
 
-/* 滑動滾輪（Range Slider）樣式 */
-.slider-container{background:var(--blue-softer);padding:16px;border-radius:12px;border:1px solid var(--line)}
-.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-weight:700;color:var(--blue)}
-.slider-header span#sliderVal{font-size:20px;color:var(--green-dark)}
-input[type=range]{width:100%;height:8px;border-radius:4px;background:var(--line);outline:none;-webkit-appearance:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--blue);cursor:pointer;box-shadow:var(--shadow-sm);transition:.15s}
-input[type=range]::-webkit-slider-thumb:hover{background:var(--green-dark);transform:scale(1.15)}
+/* 滑動滾輪（Range Slider） */
+.slider-container{background:var(--blue-softer);padding:14px;border-radius:10px;border:1px solid var(--line)}
+.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:700;color:var(--blue);font-size:14px}
+.slider-header span#sliderVal{font-size:18px;color:var(--green-dark)}
+input[type=range]{width:100%;height:6px;border-radius:3px;background:var(--line);outline:none;-webkit-appearance:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--blue);cursor:pointer}
 
 /* 機型分配網格 */
-.types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.type-item{background:#fff;border:1.5px solid var(--line);padding:10px 12px;border-radius:10px;display:flex;justify-content:space-between;align-items:center}
-.type-item label{font-size:13.5px;font-weight:600;color:var(--ink);margin:0}
-.type-item input[type=number]{width:54px;padding:6px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:14px}
+.types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.type-item{background:#fff;border:1.5px solid var(--line);padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
+.type-item label{font-size:12.5px;font-weight:600;color:var(--ink);margin:0}
+.type-item input[type=number]{width:46px;padding:4px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:13px}
 
 /* 附加服務數量分配行 */
-.addon-row{background:#fff;border:1.5px solid var(--line);padding:12px 14px;border-radius:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
-.addon-info b{font-size:14px;color:var(--ink);display:block}
-.addon-info span{font-size:12px;color:var(--muted)}
-.addon-qty-box{display:flex;align-items:center;gap:8px}
-.addon-qty-box input[type=number]{width:54px;padding:6px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:14px}
+.addon-row{background:#fff;border:1.5px solid var(--line);padding:10px 12px;border-radius:8px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.addon-info b{font-size:13px;color:var(--ink);display:block}
+.addon-info span{font-size:11px;color:var(--muted)}
+.addon-qty-box{display:flex;align-items:center;gap:6px}
+.addon-qty-box input[type=number]{width:46px;padding:4px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:13px}
 
-.q-line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14.5px}
-.q-line.total{margin-top:auto;border-top:2px solid rgba(255,255,255,.3);border-bottom:none;padding-top:16px}
-.q-line.total b{font-size:26px;color:var(--green)}
+.q-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:13.5px}
+.q-line.total{margin-top:auto;border-top:2px solid rgba(255,255,255,.3);border-bottom:none;padding-top:12px}
+.q-line.total b{font-size:22px;color:var(--green)}
 
 /* 嵌入式冷氣提示小字 */
 .embed-note {
-  margin-top: 14px;
-  font-size: 11px;
+  margin-top: 12px;
+  font-size: 10.5px;
   color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
+  line-height: 1.4;
   border-top: 1px dashed rgba(255, 255, 255, 0.2);
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
 /* ============ 頁腳 ============ */
-footer{background:#0D2136;color:#9FB4C8;padding:40px 0 20px;font-size:13.5px;text-align:center}
-footer p{margin-bottom:10px;color:#fff}
-.footer-socials{display:flex;justify-content:center;gap:15px;margin:15px 0}
-.footer-socials a{color:#fff;background:rgba(255,255,255,.1);padding:6px 14px;border-radius:8px;font-size:13px;transition:.2s}
-.footer-socials a:hover{background:var(--blue)}
+footer{background:#0D2136;color:#9FB4C8;padding:30px 0 15px;font-size:12px;text-align:center}
+footer p{margin-bottom:8px;color:#fff}
+.footer-socials{display:flex;justify-content:center;gap:10px;margin:12px 0}
+.footer-socials a{color:#fff;background:rgba(255,255,255,.1);padding:5px 10px;border-radius:6px;font-size:12px}
 
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;text-align:center}
-  .hero-btns{justify-content:center}
-  .social-proof-bar{justify-content:center}
-  .quote-box{grid-template-columns:1fr}
-  .cf-grid{grid-template-columns:1fr;gap:12px}
-  .nav-links{display:none}
-  .types-grid{grid-template-columns:1fr}
+/* 電腦大螢幕微調 (≥ 900px 時恢復寬屏雙欄排版) */
+@media(min-width:900px){
+  body{font-size:16px}
+  .wrap{width:min(1200px,92vw)}
+  section{padding:80px 0}
+  .nav-in{height:74px}
+  .hero-grid{grid-template-columns:1.1fr .9fr;gap:50px}
+  .cf-grid{grid-template-columns:repeat(3,1fr);text-align:center}
+  .cf-item{display:block}
+  .srv-grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+  .works-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .work-card img{height:220px}
+  .quote-box{grid-template-columns:1.2fr 0.8fr}
+  .q-form{padding:36px}
+  .q-sum{padding:36px}
+  .types-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -297,9 +287,9 @@ footer p{margin-bottom:10px;color:#fff}
       <span>24小時 · 港九新界</span>
     </div>
     <div class="nav-links">
-      <a href="#services">服務項目</a>
-      <a href="#works">屋苑紀錄</a>
-      <a href="#quote">即時報價</a>
+      <a href="#services">服務</a>
+      <a href="#works">實拍</a>
+      <a href="#quote">報價</a>
     </div>
     <div class="nav-cta">
       <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-fb">FB</a>
@@ -334,13 +324,13 @@ footer p{margin-bottom:10px;color:#fff}
       <p>提供冷氣 A/B 雙計劃深層清洗、家居清潔、除甲醛及長效滅蟲，隨時預約，即日上門。</p>
       
       <div class="social-proof-bar">
-        <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb">👍 瀏覽 Facebook 專頁（看真實好評）</a>
-        <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="social-btn ig">📷 追蹤 Instagram（看最新案例）</a>
+        <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb">👍 瀏覽 Facebook 專頁</a>
+        <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="social-btn ig">📷 追蹤 Instagram</a>
       </div>
 
-      <div class="hero-btns" style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="#quote" class="btn btn-primary btn-lg" style="padding:14px 24px">⚡ 立即取得報價</a>
-        <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2Weclean%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa btn-lg" style="padding:14px 24px">💬 WhatsApp 查詢</a>
+      <div class="hero-btns" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+        <a href="#quote" class="btn btn-primary" style="padding:10px 18px; font-size:13.5px;">⚡ 立即取得報價</a>
+        <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2Weclean%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa" style="padding:10px 18px; font-size:13.5px;">💬 WhatsApp 查詢</a>
       </div>
     </div>
     <div>
@@ -357,9 +347,9 @@ footer p{margin-bottom:10px;color:#fff}
 <!-- 核心保證條 -->
 <div class="core-features">
   <div class="wrap cf-grid">
-    <div class="cf-item"><b>⏱️ 24小時服務</b><span>全天候隨時預約，即日可約</span></div>
-    <div class="cf-item"><b>📍 港九新界</b><span>18區全覆蓋，上門準時</span></div>
-    <div class="cf-item"><b>🛡️ 無隱藏式收費</b><span>明碼實價，$0小費保證</span></div>
+    <div class="cf-item"><b>⏱️ 24小時服務</b> <span>全天候隨時預約，即日可約</span></div>
+    <div class="cf-item"><b>📍 港九新界</b> <span>18區全覆蓋，上門準時</span></div>
+    <div class="cf-item"><b>🛡️ 無隱藏式收費</b> <span>明碼實價，$0小費保證</span></div>
   </div>
 </div>
 
@@ -463,13 +453,13 @@ footer p{margin-bottom:10px;color:#fff}
               <span id="sliderVal">1 部</span>
             </div>
             <input type="range" id="acRange" min="1" max="8" value="1" step="1">
-            <div style="font-size:11.5px;color:var(--muted);margin-top:6px">拖動滑塊選擇您需要的總清洗數量（1至8部）</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">左右拖動滑塊選擇您需要的總清洗數量（1至8部）</div>
           </div>
         </div>
 
         <!-- 3. 冷氣機款式與數量分配 -->
         <div class="field">
-          <label>冷氣機款式分配（請填寫各款數量，總和需等於總部數）</label>
+          <label>冷氣機款式分配（總和需等於總部數）</label>
           <div class="types-grid">
             <div class="type-item">
               <label>分體機</label>
@@ -501,7 +491,7 @@ footer p{margin-bottom:10px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addOutdoor" min="0" max="5" value="0">
-              <span style="font-size:13px;font-weight:600">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -512,7 +502,7 @@ footer p{margin-bottom:10px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addBath" min="0" max="5" value="0">
-              <span style="font-size:13px;font-weight:600">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -523,7 +513,7 @@ footer p{margin-bottom:10px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addWashing" min="0" max="5" value="0">
-              <span style="font-size:13px;font-weight:600">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -534,7 +524,7 @@ footer p{margin-bottom:10px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addKitchen" min="0" max="5" value="0">
-              <span style="font-size:13px;font-weight:600">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -553,18 +543,18 @@ footer p{margin-bottom:10px;color:#fff}
 
       <div class="q-sum">
         <h3>📋 你的報價單</h3>
-        <div id="qLines" style="margin:20px 0"></div>
-        <div style="font-size:12px;opacity:.9;margin-bottom:12px;background:rgba(255,255,255,.12);padding:10px 12px;border-radius:8px;line-height:1.6">
-          🛡️ <b>30日後售後無憂保障</b><br>所有服務均享貼心售後跟進，讓你光潔安心過四季！
+        <div id="qLines" style="margin:16px 0"></div>
+        <div style="font-size:11.5px;opacity:.9;margin-bottom:10px;background:rgba(255,255,255,.12);padding:8px 10px;border-radius:6px;line-height:1.5">
+          🛡️ <b>30日後售後無憂保障</b><br>所有服務均享貼心售後跟進，安心過四季！
         </div>
-        <div style="font-size:12px;opacity:.8;margin-bottom:12px">✨ 24小時服務 ｜ 港九新界 ｜ 無隱藏式收費</div>
+        <div style="font-size:11.5px;opacity:.8;margin-bottom:10px">✨ 24小時服務 ｜ 港九新界 ｜ 無隱藏式收費</div>
         
         <!-- 嵌入式冷氣特別收費小提示 -->
         <div class="embed-note">
           💡 <b>溫馨提示：</b>如屬「嵌入式 / 隱藏式分體冷氣」，因施工較繁複需額外特別收費，預約時會由師傅另行報價。
         </div>
 
-        <a href="#" id="waBtn" target="_blank" rel="noopener" class="btn btn-wa btn-lg" style="background:#fff;color:var(--wa);width:100%;text-align:center;justify-content:center;margin-top:14px;">💬 立即 WhatsApp 預約</a>
+        <a href="#" id="waBtn" target="_blank" rel="noopener" class="btn btn-wa" style="background:#fff;color:var(--wa);width:100%;text-align:center;justify-content:center;margin-top:12px;padding:12px;font-size:14px;">💬 立即 WhatsApp 預約</a>
       </div>
     </div>
   </div>
@@ -576,10 +566,10 @@ footer p{margin-bottom:10px;color:#fff}
     <p><strong>Weclean 專業清潔及冷氣清洗服務</strong></p>
     <p>24小時服務 ｜ 港九新界 18區全覆蓋 ｜ 無隱藏式收費</p>
     <div class="footer-socials">
-      <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook 專頁</a>
-      <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener">Instagram 專頁</a>
+      <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p style="font-size:12px;opacity:.7;margin-top:15px">© 2026 Weclean. All Rights Reserved.</p>
+    <p style="font-size:11px;opacity:.7;margin-top:10px">© 2026 Weclean. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -678,12 +668,12 @@ function update() {
   let html = `<div class="q-line"><span>${plan==='planB'?'B計劃（銀離子防霉）':'A計劃（深層清洗）'} × ${total}部</span><b>$${base}</b></div>`;
   
   let typesDetail = [];
-  if (s > 0) typesDetail.push(`分體機${s}部`);
-  if (w > 0) typesDetail.push(`窗口機${w}部`);
-  if (c > 0) typesDetail.push(`天花機${c}部`);
-  if (ce > 0) typesDetail.push(`中央空調${ce}部`);
+  if (s > 0) typesDetail.push(`分體${s}部`);
+  if (w > 0) typesDetail.push(`窗口${w}部`);
+  if (c > 0) typesDetail.push(`天花${c}部`);
+  if (ce > 0) typesDetail.push(`中央${ce}部`);
   if (typesDetail.length > 0) {
-    html += `<div style="font-size:12px;opacity:0.85;padding:4px 0 8px;border-bottom:1px dashed rgba(255,255,255,.2)">款式分佈：${typesDetail.join('、')}</div>`;
+    html += `<div style="font-size:11.5px;opacity:0.85;padding:4px 0 6px;border-bottom:1px dashed rgba(255,255,255,.2)">機型分佈：${typesDetail.join('、')}</div>`;
   }
 
   html += addonHtml;
@@ -691,10 +681,10 @@ function update() {
   html += `<div class="q-line total"><span>參考總價</span><b>$${total}</b></div>`;
   QLINES.innerHTML = html;
 
-  let msg = `你好，我想預約 Weclean 服務（包30日後售後無憂）：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${total} 部\n`;
-  if (typesDetail.length > 0) msg += `• 機型分佈：${typesDetail.join('、')}\n`;
+  let msg = `你好，我想預約 Weclean 服務：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${total} 部\n`;
+  if (typesDetail.length > 0) msg += `• 機型：${typesDetail.join('、')}\n`;
   addons.forEach(a => {
-    if (a.qty > 0) msg += `• 附加服務：${a.name} × ${a.qty}部\n`;
+    if (a.qty > 0) msg += `• 附加：${a.name} × ${a.qty}部\n`;
   });
   msg += `• 參考總價：$${total}\n（註：若為嵌入式/隱藏式分體冷氣請師傅再行報價）\n請幫手安排！`;
   
