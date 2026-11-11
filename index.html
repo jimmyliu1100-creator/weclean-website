@@ -245,7 +245,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .work-info b{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .work-info span{font-size:11px;color:var(--muted)}
 
-/* ============ 報價器 ============ */
+/* ============ 全新多功能即時報價器 ============ */
 .quote-sec{background:transparent}
 .quote-box{background:rgba(255,255,255,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
 .q-form{padding:20px}
@@ -253,6 +253,32 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .field{margin-bottom:16px}
 .field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px;color:var(--ink)}
 .field select{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;background:#fff}
+
+.service-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.tab-btn {
+  padding: 10px;
+  background: var(--blue-softer);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--body);
+  cursor: pointer;
+  text-align: center;
+  transition: .2s;
+}
+.tab-btn.active {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+.quote-panel { display: none; }
+.quote-panel.active { display: block; }
 
 .slider-container{background:var(--blue-softer);padding:14px;border-radius:10px;border:1px solid var(--line)}
 .slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:700;color:var(--blue);font-size:14px}
@@ -334,6 +360,7 @@ footer p{margin-bottom:8px;color:#fff}
   .q-sum{padding:36px}
   .types-grid{grid-template-columns:repeat(2,1fr)}
   .reviews-grid{grid-template-columns:repeat(3,1fr);gap:20px}
+  .service-tabs{grid-template-columns:repeat(4,1fr)}
 }
 </style>
 </head>
@@ -442,9 +469,8 @@ footer p{margin-bottom:8px;color:#fff}
         </div>
       </div>
 
-      <!-- Weclean 專業除甲醛服務卡片 -->
       <div class="srv-card featured">
-        <h3>✨ 專業除甲醛服務（全港震撼最低價）</h3>
+        <h3>✨ Weclean 專業除甲醛服務（全港震撼最低價）</h3>
         <p>承諾全港最平！日本進口 ECO-C 無光觸媒，平民化收費，嬰幼兒安心入屋。</p>
         <div class="price-list">
           <b>💥 震撼破底價收費標準：</b>
@@ -459,9 +485,8 @@ footer p{margin-bottom:8px;color:#fff}
         </div>
       </div>
 
-      <!-- Weclean 床褥梳化深層清洗 & 滅蟲 -->
       <div class="srv-card featured">
-        <h3>🛏️ 床褥梳化深層清洗 & 滅蟲</h3>
+        <h3>🛏️ Weclean 床褥梳化深層清洗 & 滅蟲</h3>
         <p>採用高溫蒸氣及環保除蟎去污技術，高效殺滅塵蟎、霉菌及微米級噴霧滅蟲，守護全家健康。</p>
         <div class="price-list">
           <b>🛏️ 專業床褥乾濕洗及除蟎：</b>
@@ -519,109 +544,125 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </section>
 
-<!-- 即時報價 -->
+<!-- 全新多功能即時報價器 -->
 <section id="quote" class="quote-sec">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-tag">INSTANT QUOTE</span>
-      <h2>即時報價計算器</h2>
-      <p>滑動選擇冷氣數量、搭配機型與數量，30秒即時獲取參考價錢</p>
+      <h2>全方位即時報價計算器</h2>
+      <p>自由選擇冷氣、除甲醛、床褥梳化清洗或滅蟲服務，30秒即時獲取參考價錢</p>
     </div>
     <div class="quote-box">
       <div class="q-form">
         
-        <div class="field">
-          <label>選擇冷氣清洗計劃</label>
-          <select id="planType">
-            <option value="planA">A計劃（深層清洗＋消毒）</option>
-            <option value="planB">B計劃（深層清洗＋銀離子防霉保約一年）</option>
-          </select>
+        <!-- 服務分類切換按鈕 -->
+        <div class="service-tabs">
+          <button type="button" class="tab-btn active" onclick="switchTab('ac')">❄️ 冷氣清洗</button>
+          <button type="button" class="tab-btn" onclick="switchTab('hcho')">✨ 除甲醛</button>
+          <button type="button" class="tab-btn" onclick="switchTab('sofa')">🛏️ 床褥梳化</button>
+          <button type="button" class="tab-btn" onclick="switchTab('pest')">🐜 家居滅蟲</button>
         </div>
 
-        <div class="field">
-          <div class="slider-container">
-            <div class="slider-header">
-              <label style="margin:0">冷氣機總部數</label>
-              <span id="sliderVal">1 部</span>
+        <!-- 1. 冷氣清洗面板 -->
+        <div id="panel-ac" class="quote-panel active">
+          <div class="field">
+            <label>選擇冷氣清洗計劃</label>
+            <select id="planType">
+              <option value="planA">A計劃（深層清洗＋消毒）</option>
+              <option value="planB">B計劃（深層清洗＋銀離子防霉保約一年）</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <div class="slider-container">
+              <div class="slider-header">
+                <label style="margin:0">冷氣機總部數</label>
+                <span id="sliderVal">1 部</span>
+              </div>
+              <input type="range" id="acRange" min="1" max="8" value="1" step="1">
             </div>
-            <input type="range" id="acRange" min="1" max="8" value="1" step="1">
-            <div style="font-size:11px;color:var(--muted);margin-top:4px">左右拖動滑塊選擇您需要的總清洗數量（1至8部）</div>
+          </div>
+
+          <div class="field">
+            <label>附加服務（可選）</label>
+            <div class="addon-row">
+              <div class="addon-info"><b>室外機清洗</b><span>每部 $80</span></div>
+              <div class="addon-qty-box"><input type="number" id="addOutdoor" min="0" max="5" value="0"><span>部</span></div>
+            </div>
+            <div class="addon-row">
+              <div class="addon-info"><b>浴室寶 / 抽氣扇</b><span>每部 $280</span></div>
+              <div class="addon-qty-box"><input type="number" id="addBath" min="0" max="5" value="0"><span>部</span></div>
+            </div>
+            <div class="addon-row">
+              <div class="addon-info"><b>清洗洗衣機</b><span>每部 $150</span></div>
+              <div class="addon-qty-box"><input type="number" id="addWashing" min="0" max="5" value="0"><span>部</span></div>
+            </div>
+            <div class="addon-row">
+              <div class="addon-info"><b>廚房抽風扇</b><span>每部 $350</span></div>
+              <div class="addon-qty-box"><input type="number" id="addKitchen" min="0" max="5" value="0"><span>部</span></div>
+            </div>
           </div>
         </div>
 
-        <div class="field">
-          <label>冷氣機款式分配（總和需等於總部數）</label>
-          <div class="types-grid">
-            <div class="type-item">
-              <label>分體機</label>
-              <input type="number" id="typeSplit" min="0" max="8" value="1">
-            </div>
-            <div class="type-item">
-              <label>窗口機</label>
-              <input type="number" id="typeWindow" min="0" max="8" value="0">
-            </div>
-            <div class="type-item">
-              <label>天花機</label>
-              <input type="number" id="typeCeiling" min="0" max="8" value="0">
-            </div>
-            <div class="type-item">
-              <label>中央空調</label>
-              <input type="number" id="typeCentral" min="0" max="8" value="0">
-            </div>
+        <!-- 2. 除甲醛面板 -->
+        <div id="panel-hcho" class="quote-panel">
+          <div class="field">
+            <label>選擇除甲醛方案</label>
+            <select id="hchoPlan">
+              <option value="std">標準方案（基礎淨化）</option>
+              <option value="eco">升級方案（日本進口 ECO-C 無光觸媒）</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>選擇實用面積範圍</label>
+            <select id="hchoAreaSize">
+              <option value="300">300呎或以下 (最低消費)</option>
+              <option value="500">301 - 500呎</option>
+              <option value="700">501 - 700呎</option>
+              <option value="900">701 - 900呎</option>
+              <option value="1100">901 - 1,100呎</option>
+              <option value="1500">1,100呎以上 (按實報)</option>
+            </select>
+          </div>
+          <div style="font-size:12px;color:var(--green-dark);font-weight:700;margin-top:6px">
+            🎁 包施工前後雙重檢測 $0 (全免)！
           </div>
         </div>
 
-        <div class="field">
-          <label>附加服務選擇（可選 1 至 5 部）</label>
-          
-          <div class="addon-row">
-            <div class="addon-info">
-              <b>室外機清洗</b>
-              <span>每部 $80</span>
-            </div>
-            <div class="addon-qty-box">
-              <input type="number" id="addOutdoor" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:600">部</span>
-            </div>
+        <!-- 3. 床褥梳化清洗面板 -->
+        <div id="panel-sofa" class="quote-panel">
+          <div class="field">
+            <label>床褥清洗數量選擇</label>
+            <div class="addon-row"><div class="addon-info"><b>BB床 / 小童床</b><span>$480/張</span></div><div class="addon-qty-box"><input type="number" id="bedKids" min="0" max="5" value="0"><span>張</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>單人床 (Single)</b><span>$680/張</span></div><div class="addon-qty-box"><input type="number" id="bedSingle" min="0" max="5" value="0"><span>張</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>雙人床 (Double)</b><span>$820/張</span></div><div class="addon-qty-box"><input type="number" id="bedDouble" min="0" max="5" value="0"><span>張</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>加大雙人床 (Queen)</b><span>$950/張</span></div><div class="addon-qty-box"><input type="number" id="bedQueen" min="0" max="5" value="0"><span>張</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>特大雙人床 (King)</b><span>$1,100/張</span></div><div class="addon-qty-box"><input type="number" id="bedKing" min="0" max="5" value="0"><span>張</span></div></div>
           </div>
-
-          <div class="addon-row">
-            <div class="addon-info">
-              <b>浴室寶 / 抽氣扇</b>
-              <span>每部 $280</span>
-            </div>
-            <div class="addon-qty-box">
-              <input type="number" id="addBath" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:600">部</span>
-            </div>
+          <div class="field">
+            <label>梳化清洗數量選擇</label>
+            <div class="addon-row"><div class="addon-info"><b>單座位梳化</b><span>$450/個</span></div><div class="addon-qty-box"><input type="number" id="sofa1" min="0" max="5" value="0"><span>個</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>兩座位梳化</b><span>$680/個</span></div><div class="addon-qty-box"><input type="number" id="sofa2" min="0" max="5" value="0"><span>個</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>三座位梳化</b><span>$880/個</span></div><div class="addon-qty-box"><input type="number" id="sofa3" min="0" max="5" value="0"><span>個</span></div></div>
+            <div class="addon-row"><div class="addon-info"><b>L型 / 貴妃椅梳化</b><span>$1,180/張</span></div><div class="addon-qty-box"><input type="number" id="sofaL" min="0" max="5" value="0"><span>張</span></div></div>
           </div>
-
-          <div class="addon-row">
-            <div class="addon-info">
-              <b>清洗洗衣機</b>
-              <span>每部 $150</span>
-            </div>
-            <div class="addon-qty-box">
-              <input type="number" id="addWashing" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:600">部</span>
-            </div>
-          </div>
-
-          <div class="addon-row">
-            <div class="addon-info">
-              <b>廚房抽風扇</b>
-              <span>每部 $350</span>
-            </div>
-            <div class="addon-qty-box">
-              <input type="number" id="addKitchen" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:600">部</span>
-            </div>
-          </div>
-
         </div>
 
-        <div class="field">
-          <label>地區選擇</label>
+        <!-- 4. 家居滅蟲面板 -->
+        <div id="panel-pest" class="quote-panel">
+          <div class="field">
+            <label>選擇滅蟲服務項目</label>
+            <select id="pestType">
+              <option value="680">一般家居微米級噴霧滅蟲（小型單位）- $680起</option>
+              <option value="980">標準家居全屋滅蟲（中型單位/防木蝨）- $980起</option>
+              <option value="1380">全面深層滅蟲及高溫除蟎套餐（大型單位）- $1,380起</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 地區選擇（共通） -->
+        <div class="field" style="margin-top:16px;border-top:1px solid var(--line);padding-top:16px">
+          <label>上門地區選擇</label>
           <select id="area">
             <option value="0">九龍 / 新界 / 其他地區（免隧道費）</option>
             <option value="60">港島區（含隧道附加費 +$60）</option>
@@ -631,7 +672,7 @@ footer p{margin-bottom:8px;color:#fff}
       </div>
 
       <div class="q-sum">
-        <h3>📋 你的報價單</h3>
+        <h3>📋 你的綜合報價單</h3>
         <div id="qLines" style="margin:16px 0"></div>
         <div style="font-size:11.5px;opacity:.9;margin-bottom:10px;background:rgba(255,255,255,.12);padding:8px 10px;border-radius:6px;line-height:1.5">
           🛡️ <b>30日後售後無憂保障</b><br>所有服務均享貼心售後跟進，安心過四季！
@@ -639,7 +680,7 @@ footer p{margin-bottom:8px;color:#fff}
         <div style="font-size:11.5px;opacity:.8;margin-bottom:10px">✨ 24小時服務 ｜ 港九新界 ｜ 無隱藏式收費</div>
         
         <div class="embed-note">
-          💡 <b>溫馨提示：</b>如屬「嵌入式 / 隱藏式分體冷氣」，因施工較繁複需額外特別收費，預約時會由師傅另行報價。
+          💡 <b>溫馨提示：</b>如屬特殊大型單位或隱閣施工，預約後會由專人與您最終確認細節。
         </div>
 
         <a href="#" id="waBtn" target="_blank" rel="noopener" class="btn btn-wa" style="background:#fff;color:var(--wa);width:100%;text-align:center;justify-content:center;margin-top:12px;padding:12px;font-size:14px;">💬 立即 WhatsApp 預約</a>
@@ -648,7 +689,7 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </section>
 
-<!-- ============ 客戶真實好評區塊 ============ -->
+<!-- 客戶真實好評區塊 -->
 <section id="reviews" class="reviews-sec">
   <div class="wrap">
     <div class="sec-head">
@@ -704,98 +745,163 @@ function animateCounter() {
 }
 window.addEventListener('DOMContentLoaded', animateCounter);
 
-const PLAN_TYPE = document.getElementById('planType');
+let currentTab = 'ac';
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.quote-panel').forEach(p => p.classList.remove('active'));
+  
+  if(tab === 'ac') {
+    document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    document.getElementById('panel-ac').classList.add('active');
+  } else if(tab === 'hcho') {
+    document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    document.getElementById('panel-hcho').classList.add('active');
+  } else if(tab === 'sofa') {
+    document.querySelectorAll('.tab-btn')[2].classList.add('active');
+    document.getElementById('panel-sofa').classList.add('active');
+  } else if(tab === 'pest') {
+    document.querySelectorAll('.tab-btn')[3].classList.add('active');
+    document.getElementById('panel-pest').classList.add('active');
+  }
+  update();
+}
+
 const AC_RANGE = document.getElementById('acRange');
 const SLIDER_VAL = document.getElementById('sliderVal');
-
-const TYPE_SPLIT = document.getElementById('typeSplit');
-const TYPE_WINDOW = document.getElementById('typeWindow');
-const TYPE_CEILING = document.getElementById('typeCeiling');
-const TYPE_CENTRAL = document.getElementById('typeCentral');
-
+const PLAN_TYPE = document.getElementById('planType');
 const ADD_OUTDOOR = document.getElementById('addOutdoor');
 const ADD_BATH = document.getElementById('addBath');
 const ADD_WASHING = document.getElementById('addWashing');
 const ADD_KITCHEN = document.getElementById('addKitchen');
 
+const HCHO_PLAN = document.getElementById('hchoPlan');
+const HCHO_AREA = document.getElementById('hchoAreaSize');
+
+const BED_KIDS = document.getElementById('bedKids');
+const BED_SINGLE = document.getElementById('bedSingle');
+const BED_DOUBLE = document.getElementById('bedDouble');
+const BED_QUEEN = document.getElementById('bedQueen');
+const BED_KING = document.getElementById('bedKing');
+const SOFA_1 = document.getElementById('sofa1');
+const SOFA_2 = document.getElementById('sofa2');
+const SOFA_3 = document.getElementById('sofa3');
+const SOFA_L = document.getElementById('sofaL');
+
+const PEST_TYPE = document.getElementById('pestType');
 const AREA = document.getElementById('area');
 const QLINES = document.getElementById('qLines');
 const WA_BTN = document.getElementById('waBtn');
 
-const PRICES = {
+const PRICES_AC = {
   planA: { 1: 680, 2: 1080, 3: 1250, 4: 1500, 5: 1750, 6: 2000, 7: 2250, 8: 2500 },
   planB: { 1: 730, 2: 1200, 3: 1500, 4: 1850, 5: 2050, 6: 2300, 7: 2550, 8: 2800 }
 };
 
+const PRICES_HCHO = {
+  std: { 300: 600, 500: 880, 700: 1280, 900: 1680, 1100: 2080, 1500: 2500 },
+  eco: { 300: 880, 500: 1380, 700: 1880, 900: 2480, 1100: 3080, 1500: 3800 }
+};
+
 AC_RANGE.addEventListener('input', (e) => {
-  const val = parseInt(e.target.value);
-  SLIDER_VAL.textContent = val + ' 部';
-  TYPE_SPLIT.value = val;
-  TYPE_WINDOW.value = 0;
-  TYPE_CEILING.value = 0;
-  TYPE_CENTRAL.value = 0;
-  TYPE_SPLIT.max = val;
+  SLIDER_VAL.textContent = e.target.value + ' 部';
   update();
 });
 
-[PLAN_TYPE, TYPE_SPLIT, TYPE_WINDOW, TYPE_CEILING, TYPE_CENTRAL, ADD_OUTDOOR, ADD_BATH, ADD_WASHING, ADD_KITCHEN, AREA].forEach(el => {
-  el.addEventListener('input', update);
-  el.addEventListener('change', update);
+[PLAN_TYPE, AC_RANGE, ADD_OUTDOOR, ADD_BATH, ADD_WASHING, ADD_KITCHEN, HCHO_PLAN, HCHO_AREA, BED_KIDS, BED_SINGLE, BED_DOUBLE, BED_QUEEN, BED_KING, SOFA_1, SOFA_2, SOFA_3, SOFA_L, PEST_TYPE, AREA].forEach(el => {
+  if(el) {
+    el.addEventListener('input', update);
+    el.addEventListener('change', update);
+  }
 });
 
 function update() {
-  const plan = PLAN_TYPE.value;
-  const totalQty = parseInt(AC_RANGE.value);
-  const base = PRICES[plan][totalQty] || PRICES[plan][8];
+  let total = 0;
+  let html = '';
+  let msg = `你好，我想預約 Weclean 服務：\n`;
 
-  const s = parseInt(TYPE_SPLIT.value) || 0;
-  const w = parseInt(TYPE_WINDOW.value) || 0;
-  const c = parseInt(TYPE_CEILING.value) || 0;
-  const ce = parseInt(TYPE_CENTRAL.value) || 0;
+  const tunnel = parseInt(AREA.value) || 0;
+  const areaName = tunnel > 0 ? '港島區（含隧道費 +$60）' : '九龍/新界/其他地區';
 
-  const addons = [
-    { name: '室外機清洗', qty: parseInt(ADD_OUTDOOR.value) || 0, price: 80 },
-    { name: '浴室寶/抽氣扇', qty: parseInt(ADD_BATH.value) || 0, price: 280 },
-    { name: '清洗洗衣機', qty: parseInt(ADD_WASHING.value) || 0, price: 150 },
-    { name: '廚房抽風扇', qty: parseInt(ADD_KITCHEN.value) || 0, price: 350 }
-  ];
+  if (currentTab === 'ac') {
+    const plan = PLAN_TYPE.value;
+    const qty = parseInt(AC_RANGE.value) || 1;
+    const base = PRICES_AC[plan][qty] || PRICES_AC[plan][8];
+    total += base;
 
-  let addTotal = 0;
-  let addonHtml = '';
-  addons.forEach(a => {
-    if (a.qty > 0) {
-      const sub = a.qty * a.price;
-      addTotal += sub;
-      addonHtml += `<div class="q-line"><span>${a.name} × ${a.qty}部</span><b>$${sub}</b></div>`;
+    html += `<div class="q-line"><span>${plan==='planB'?'冷氣B計劃（防霉）':'冷氣A計劃'} × ${qty}部</span><b>$${base}</b></div>`;
+    msg += `• 服務：冷氣清洗 (${plan==='planB'?'B計劃':'A計劃'} 共 ${qty} 部)\n`;
+
+    const addons = [
+      { name: '室外機清洗', qty: parseInt(ADD_OUTDOOR.value) || 0, price: 80 },
+      { name: '浴室寶/抽氣扇', qty: parseInt(ADD_BATH.value) || 0, price: 280 },
+      { name: '清洗洗衣機', qty: parseInt(ADD_WASHING.value) || 0, price: 150 },
+      { name: '廚房抽風扇', qty: parseInt(ADD_KITCHEN.value) || 0, price: 350 }
+    ];
+
+    addons.forEach(a => {
+      if (a.qty > 0) {
+        const sub = a.qty * a.price;
+        total += sub;
+        html += `<div class="q-line"><span>${a.name} × ${a.qty}部</span><b>$${sub}</b></div>`;
+        msg += `• 附加：${a.name} × ${a.qty}部\n`;
+      }
+    });
+
+  } else if (currentTab === 'hcho') {
+    const plan = HCHO_PLAN.value;
+    const size = HCHO_AREA.value;
+    const base = PRICES_HCHO[plan][size] || 600;
+    total += base;
+
+    const planLabel = plan === 'eco' ? '升級ECO-C無光觸媒' : '標準基礎淨化';
+    html += `<div class="q-line"><span>除甲醛 (${planLabel}, ${size}呎範圍)</span><b>$${base}</b></div>`;
+    html += `<div style="font-size:11.5px;color:var(--green);padding:2px 0">🎁 包施工前後雙重檢測 $0</div>`;
+    msg += `• 服務：除甲醛 (${planLabel}, 約 ${size}呎範圍)\n`;
+
+  } else if (currentTab === 'sofa') {
+    const items = [
+      { name: 'BB/小童床', qty: parseInt(BED_KIDS.value)||0, price: 480 },
+      { name: '單人床', qty: parseInt(BED_SINGLE.value)||0, price: 680 },
+      { name: '雙人床', qty: parseInt(BED_DOUBLE.value)||0, price: 820 },
+      { name: 'Queen床', qty: parseInt(BED_QUEEN.value)||0, price: 950 },
+      { name: 'King床', qty: parseInt(BED_KING.value)||0, price: 1100 },
+      { name: '單座位梳化', qty: parseInt(SOFA_1.value)||0, price: 450 },
+      { name: '兩座位梳化', qty: parseInt(SOFA_2.value)||0, price: 680 },
+      { name: '三座位梳化', qty: parseInt(SOFA_3.value)||0, price: 880 },
+      { name: 'L型梳化', qty: parseInt(SOFA_L.value)||0, price: 1180 }
+    ];
+
+    let hasItem = false;
+    items.forEach(i => {
+      if(i.qty > 0) {
+        hasItem = true;
+        const sub = i.qty * i.price;
+        total += sub;
+        html += `<div class="q-line"><span>${i.name} × ${i.qty}</span><b>$${sub}</b></div>`;
+        msg += `• ${i.name} × ${i.qty}\n`;
+      }
+    });
+    if(!hasItem) {
+      html += `<div style="font-size:12px;opacity:0.8;text-align:center;padding:10px">請於左側選擇您需要清洗的床褥或梳化數量</div>`;
     }
-  });
 
-  const tunnel = parseInt(AREA.value);
-  const total = base + addTotal + tunnel;
-
-  let html = `<div class="q-line"><span>${plan==='planB'?'B計劃（銀離子防霉）':'A計劃（深層清洗）'} × ${total}部</span><b>$${base}</b></div>`;
-  
-  let typesDetail = [];
-  if (s > 0) typesDetail.push(`分體${s}部`);
-  if (w > 0) typesDetail.push(`窗口${w}部`);
-  if (c > 0) typesDetail.push(`天花${c}部`);
-  if (ce > 0) typesDetail.push(`中央${ce}部`);
-  if (typesDetail.length > 0) {
-    html += `<div style="font-size:11.5px;opacity:0.85;padding:4px 0 6px;border-bottom:1px dashed rgba(255,255,255,.2)">機型分佈：${typesDetail.join('、')}</div>`;
+  } else if (currentTab === 'pest') {
+    const price = parseInt(PEST_TYPE.value) || 680;
+    total += price;
+    html += `<div class="q-line"><span>家居微米級噴霧滅蟲套餐</span><b>$${price}起</b></div>`;
+    msg += `• 服務：家居微米級噴霧滅蟲套餐 ($${price}起)\n`;
   }
 
-  html += addonHtml;
-  if(tunnel > 0) html += `<div class="q-line"><span>港島隧道費</span><b>$${tunnel}</b></div>`;
+  if (tunnel > 0) {
+    total += tunnel;
+    html += `<div class="q-line"><span>港島區隧道費</span><b>$${tunnel}</b></div>`;
+  }
+
   html += `<div class="q-line total"><span>參考總價</span><b>$${total}</b></div>`;
   QLINES.innerHTML = html;
 
-  let msg = `你好，我想預約 Weclean 服務：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${total} 部\n`;
-  if (typesDetail.length > 0) msg += `• 機型：${typesDetail.join('、')}\n`;
-  addons.forEach(a => {
-    if (a.qty > 0) msg += `• 附加：${a.name} × ${a.qty}部\n`;
-  });
-  msg += `• 參考總價：$${total}\n（註：若為嵌入式/隱藏式分體冷氣請師傅再行報價）\n請幫手安排！`;
-  
+  msg += `• 地區：${areaName}\n• 參考總價：$${total}\n請幫手安排！`;
   WA_BTN.href = `https://wa.me/85262572787?text=${encodeURIComponent(msg)}`;
 }
 update();
