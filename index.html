@@ -2,10 +2,9 @@
 <html lang="zh-HK">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0F5FA6">
-<title>Weclean 專業清潔及冷氣清洗服務 | 24小時服務 港九新界 無隱藏式收費</title>
-<meta name="description" content="Weclean 專業冷氣深層清洗、A/B計劃、家居清潔與滅蟲服務。24小時服務，港九新界18區全覆蓋，明碼實價，無隱藏式收費。">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>DCe 專業清潔及冷氣清洗服務 | 24小時服務 港九新界 無隱藏式收費</title>
+<meta name="description" content="DCe 專業冷氣深層清洗、A/B計劃、家居清潔與除甲醛服務。24小時服務，港九新界18區全覆蓋，明碼實價，無隱藏式收費。">
 <link rel="icon" href="assets/logo_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +19,13 @@
   --green:#9CCB4A;
   --green-dark:#7BB32F;
   --ink:#16283D;
-  --body:#42586F;
+  --body:#3E5266;
   --muted:#6B8098;
   --line:#DCE8F3;
   --white:#fff;
   --shadow-sm:0 2px 8px rgba(15,95,166,.08);
-  --shadow:0 10px 30px rgba(15,95,166,.12);
-  --shadow-lg:0 24px 80px rgba(15,95,166,.15);
+  --shadow:0 8px 28px rgba(15,95,166,.12);
+  --shadow-lg:0 20px 60px rgba(15,95,166,.18);
   --r:16px; --r-lg:24px;
   --wa:#25D366;
   --fb:#1877F2;
@@ -36,126 +35,163 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   font-family:"Noto Sans TC","PingFang HK","Microsoft JhengHei",sans-serif;
   color:var(--body); line-height:1.7; 
-  background: linear-gradient(180deg, #f5f9fd 0%, #ffffff 18%, #f9fbff 100%);
+  background: linear-gradient(135deg, rgba(240,247,252,.92) 0%, rgba(244,251,240,.92) 50%, rgba(255,255,255,.94) 100%);
   font-size:15px; overflow-x:hidden;
   position: relative;
 }
+
+/* 全站底印水印：客廳情景照 */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: url('assets/livingroom_watermark.jpg') no-repeat center center;
   background-size: cover;
-  opacity: 0.04;
+  opacity: 0.06;
   pointer-events: none;
   z-index: 0;
 }
-nav, header, section, footer, div {
+nav, header, div, section, footer {
   position: relative;
   z-index: 1;
 }
+
 img, video{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{width:min(1140px,90vw);margin:0 auto}
-section{padding:70px 0}
+section{padding:50px 0}
 h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
+/* ============ 導航 ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
-  background:rgba(255,255,255,.92);backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(220,232,243,.9);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
 }
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:10px}
-.brand-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.brand-logo img{height:42px;width:auto;object-fit:contain}
-.brand-logo .brand-txt{display:flex;flex-direction:column}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:8px}
+
+.brand-logo{
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.brand-logo img{
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+.brand-logo .brand-txt{
+  display:flex;flex-direction:column;
+}
 .brand-logo .brand-txt b{font-size:15px;color:var(--blue);font-weight:900;line-height:1.2}
 .brand-logo .brand-txt span{font-size:10px;color:var(--muted);white-space:nowrap}
+
 .nav-links{display:flex;gap:12px;align-items:center}
-.nav-links a{font-size:13px;font-weight:700;color:var(--body);transition:.2s;opacity:.9}
+.nav-links a{font-size:13px;font-weight:500;color:var(--body);transition:.2s}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.nav-cta{display:flex;align-items:center;gap:4px;flex-shrink:0}
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  padding:10px 16px;border-radius:999px;font-weight:800;font-size:12px;border:none;cursor:pointer;transition:.2s;white-space:nowrap;
-  box-shadow:var(--shadow-sm)
+  display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;border:none;cursor:pointer;transition:.2s;white-space:nowrap;
 }
-.btn:hover{transform:translateY(-1px)}
 .btn-wa{background:var(--wa);color:#fff}
 .btn-primary{background:linear-gradient(135deg, var(--blue), var(--blue-light));color:#fff}
 .btn-fb{background:var(--fb);color:#fff}
 .btn-ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #df3484 45%, #7624cb 90%);color:#fff}
 
+/* ============ HERO 區塊 ============ */
 .hero{
-  padding:110px 0 52px;
-  background:radial-gradient(900px 420px at 90% 10%, rgba(156,203,74,.20), transparent 55%), radial-gradient(900px 420px at 10% 20%, rgba(27,124,201,.12), transparent 58%);
+  padding:110px 0 50px;
+  background:radial-gradient(1000px 500px at 90% 0%, rgba(156,203,74,.18), transparent 60%), radial-gradient(800px 400px at 10% 20%, rgba(27,124,201,.12), transparent 50%);
 }
 .hero-grid{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
+
 .hero-logo-card{
-  display:flex;align-items:center;gap:16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
   background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--line);
-  padding: 16px 18px;
-  border-radius: 18px;
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--blue-pale);
+  padding: 16px 20px;
+  border-radius: 16px;
   box-shadow: var(--shadow);
   margin-bottom: 18px;
-  max-width: 550px;
 }
-.hero-logo-card img{width:90px;height:90px;object-fit:contain;flex-shrink:0}
-.hero-logo-card .h-txt h2{font-size:19px;color:var(--blue-dark);margin-bottom:3px}
-.hero-logo-card .h-txt p{font-size:12.5px;color:var(--muted);margin:0}
+.hero-logo-card img{
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.hero-logo-card .h-txt h2{
+  font-size: 19px;
+  color: var(--blue-dark);
+  font-weight: 900;
+  margin-bottom: 3px;
+}
+.hero-logo-card .h-txt p{
+  font-size: 12.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
 .badge-top{
   display:inline-flex;gap:6px;align-items:center;background:#fff;border:1.5px solid var(--green);
-  padding:6px 14px;border-radius:999px;font-size:12px;font-weight:800;color:var(--blue-dark);margin-bottom:16px;
+  padding:5px 12px;border-radius:999px;font-size:12px;font-weight:700;color:var(--blue-dark);margin-bottom:14px;
   box-shadow: var(--shadow-sm);
 }
-.pulse{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(156,203,74,0)}100%{box-shadow:0 0 0 0 rgba(156,203,74,0)}}
-.hero h1{font-size:clamp(28px, 7vw, 46px);margin-bottom:16px;letter-spacing:-0.04em}
-.hero h1 span{background:linear-gradient(135deg, var(--blue), var(--green-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pulse{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 6px rgba(156,203,74,0)}100%{box-shadow:0 0 0 0 rgba(156,203,74,0)}}
+.hero h1{font-size:clamp(26px, 7vw, 42px);margin-bottom:14px}
+.hero h1 span{background:linear-gradient(135deg, var(--blue), var(--green-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
 .highlight-price-tag {
   display: inline-block;
   background: linear-gradient(135deg, #FFF8E7, #FFF3CD);
   border: 1.5px solid #FFC107;
   color: #B78103;
-  font-size: clamp(14px, 4vw, 17px);
+  font-size: clamp(14px, 4vw, 18px);
   font-weight: 900;
-  padding: 7px 14px;
-  border-radius: 12px;
-  margin: 8px 0 16px 0;
-  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.18);
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin: 8px 0 14px 0;
+  box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2);
 }
+
 .hero p{font-size:15px;margin-bottom:20px;color:var(--body)}
-.social-proof-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.social-btn{
-  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;
-  font-size:12px;font-weight:800;color:#fff;box-shadow:var(--shadow-sm);
-}
-.social-btn.fb{background:var(--fb)}
-.social-btn.ig{background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)}
-.hero-btns{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
 .hero-photo-wrapper {
   position: relative;
   padding: 6px;
   background: linear-gradient(135deg, var(--blue-light), var(--green));
   border-radius: calc(var(--r) + 2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow);
   width: 100%;
 }
-.hero-photo{border-radius: var(--r);overflow:hidden;background:#fff}
-.hero-photo video{width:100%;height:auto;display:block}
+.hero-photo{
+  border-radius: var(--r);
+  overflow: hidden;
+  background: #fff;
+}
+.hero-photo video{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .live-counter-badge {
-  display:flex;align-items:center;gap:10px;
-  background: rgba(255,255,255,.94);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
   border: 1.5px solid var(--green);
-  padding: 12px 14px;
-  border-radius: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
   box-shadow: var(--shadow-sm);
   margin-bottom: 14px;
-  max-width: 520px;
 }
 .live-counter-badge .num {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   color: var(--green-dark);
 }
@@ -163,46 +199,45 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
   font-size: 12.5px;
   font-weight: 700;
   color: var(--ink);
-  line-height: 1.3;
+  line-height: 1.2;
 }
 .live-counter-badge .txt span {
   display: block;
   font-size: 10.5px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--blue);
-  margin-top: 2px;
 }
 
+.social-proof-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.social-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
+  font-size:12px;font-weight:700;color:#fff;box-shadow:var(--shadow-sm);
+}
+.social-btn.fb{background:var(--fb)}
+.social-btn.ig{background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)}
+
+/* 核心保證條 */
 .core-features{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px 0}
-.cf-grid{display:grid;grid-template-columns:1fr;gap:12px;text-align:center}
-.cf-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;padding:4px 0}
+.cf-grid{display:grid;grid-template-columns:1fr;gap:10px;text-align:center}
+.cf-item{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px}
 .cf-item b{color:var(--green);font-size:15px}
 
-.sec-head{text-align:center;max-width:620px;margin:0 auto 30px}
-.sec-tag{background:var(--blue-pale);color:var(--blue);padding:5px 14px;border-radius:999px;font-size:11px;font-weight:800;display:inline-block;margin-bottom:10px;border:1px solid var(--line);letter-spacing:.08em}
-.sec-head h2{font-size:clamp(24px, 5vw, 32px);margin-bottom:8px}
-.sec-head p{font-size:14px;color:var(--muted)}
+/* ============ 服務與計劃 ============ */
+.sec-head{text-align:center;max-width:600px;margin:0 auto 30px}
+.sec-tag{background:var(--blue-pale);color:var(--blue);padding:4px 12px;border-radius:999px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:8px;border:1px solid var(--line)}
+.sec-head h2{font-size:clamp(22px, 5vw, 30px);margin-bottom:6px}
+.sec-head p{font-size:14px}
 
-.trust-grid, .process-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
-.trust-card, .process-card{
-  background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 20px;box-shadow:var(--shadow-sm);
-}
-.trust-card .icon, .process-card .icon{
-  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg, rgba(15,95,166,.1), rgba(156,203,74,.12));margin-bottom:14px;
-}
-.trust-card h3, .process-card h3{font-size:18px;margin-bottom:8px}
-.trust-card p, .process-card p{font-size:14px;color:var(--muted)}
-
-.srv-grid{display:grid;grid-template-columns:1fr;gap:18px}
-.srv-card{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:20px;padding:24px 20px;box-shadow:var(--shadow-sm);transition:transform .2s ease, box-shadow .2s ease}
-.srv-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.srv-card.featured{border:2px solid rgba(156,203,74,.8);background:linear-gradient(180deg, #fff 0%, #f6fbf0 100%);}
-.srv-card h3{font-size:18px;margin-bottom:10px;color:var(--ink)}
+.srv-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.srv-card{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow-sm)}
+.srv-card.featured{border:2px solid var(--green);background:linear-gradient(180deg, #fff 0%, #f6fbf0 100%);}
+.srv-card h3{font-size:18px;margin-bottom:8px;color:var(--ink)}
 .srv-card p{font-size:14px;color:var(--muted);margin-bottom:12px}
-.price-list{background:var(--blue-softer);border-radius:12px;padding:14px;font-size:13px;margin-top:8px;border:1px solid var(--line);line-height:1.7}
+.price-list{background:var(--blue-softer);border-radius:10px;padding:12px;font-size:13px;margin-top:10px;border:1px solid var(--line);line-height:1.6}
 .price-list b{display:block;color:var(--blue-dark);margin-bottom:4px}
 
-.works-sec{background:linear-gradient(180deg, rgba(234,244,252,.45) 0%, rgba(156,203,74,.08) 100%)}
+/* ============ 屋苑實拍紀錄 ============ */
+.works-sec{background:linear-gradient(180deg, rgba(234,244,252,.5) 0%, rgba(156,203,74,.08) 100%)}
 .works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .work-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm)}
 .work-card img{width:100%;height:130px;object-fit:cover}
@@ -210,54 +245,78 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .work-info b{display:block;font-size:13px;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .work-info span{font-size:11px;color:var(--muted)}
 
+/* ============ 報價器 ============ */
 .quote-sec{background:transparent}
 .quote-box{background:rgba(255,255,255,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
 .q-form{padding:20px}
 .q-sum{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px;display:flex;flex-direction:column}
 .field{margin-bottom:16px}
-.field label{display:block;font-weight:800;font-size:13.5px;margin-bottom:6px;color:var(--ink)}
-.field select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;background:#fff;color:var(--ink)}
-.slider-container{background:var(--blue-softer);padding:14px;border-radius:12px;border:1px solid var(--line)}
-.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:800;color:var(--blue);font-size:14px}
+.field label{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px;color:var(--ink)}
+.field select{width:100%;padding:10px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;background:#fff}
+
+.slider-container{background:var(--blue-softer);padding:14px;border-radius:10px;border:1px solid var(--line)}
+.slider-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-weight:700;color:var(--blue);font-size:14px}
 .slider-header span#sliderVal{font-size:18px;color:var(--green-dark)}
 input[type=range]{width:100%;height:6px;border-radius:3px;background:var(--line);outline:none;-webkit-appearance:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--blue);cursor:pointer}
+
 .types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .type-item{background:#fff;border:1.5px solid var(--line);padding:8px 10px;border-radius:8px;display:flex;justify-content:space-between;align-items:center}
-.type-item label{font-size:12.5px;font-weight:700;color:var(--ink);margin:0}
+.type-item label{font-size:12.5px;font-weight:600;color:var(--ink);margin:0}
 .type-item input[type=number]{width:46px;padding:4px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:13px}
+
 .addon-row{background:#fff;border:1.5px solid var(--line);padding:10px 12px;border-radius:8px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
 .addon-info b{font-size:13px;color:var(--ink);display:block}
 .addon-info span{font-size:11px;color:var(--muted)}
 .addon-qty-box{display:flex;align-items:center;gap:6px}
 .addon-qty-box input[type=number]{width:46px;padding:4px;border:1px solid var(--line);border-radius:6px;text-align:center;font-weight:700;font-size:13px}
+
 .q-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:13.5px}
 .q-line.total{margin-top:auto;border-top:2px solid rgba(255,255,255,.3);border-bottom:none;padding-top:12px}
 .q-line.total b{font-size:22px;color:var(--green)}
+
 .embed-note {
   margin-top: 12px;
   font-size: 10.5px;
-  color: rgba(255,255,255,.8);
-  line-height:1.5;
-  border-top: 1px dashed rgba(255,255,255,.2);
-  padding-top:8px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.4;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-top: 8px;
 }
+
+/* ============ 客戶真實好評區塊 ============ */
 .reviews-sec {
-  background: rgba(255,255,255,.85);
+  background: rgba(255, 255, 255, 0.85);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 50px 0;
 }
-.reviews-grid {display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px}
-.review-card {
-  background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);padding:8px;
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
 }
-.review-card img {width:100%;height:auto;border-radius:10px;display:block}
+.review-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  padding: 8px;
+}
+.review-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
 
+/* ============ 頁腳 ============ */
 footer{background:#0D2136;color:#9FB4C8;padding:30px 0 15px;font-size:12px;text-align:center}
 footer p{margin-bottom:8px;color:#fff}
 .footer-socials{display:flex;justify-content:center;gap:10px;margin:12px 0}
-.footer-socials a{color:#fff;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:6px;font-size:12px}
+.footer-socials a{color:#fff;background:rgba(255,255,255,.1);padding:5px 10px;border-radius:6px;font-size:12px}
 
 @media(min-width:900px){
   body{font-size:16px}
@@ -265,11 +324,9 @@ footer p{margin-bottom:8px;color:#fff}
   section{padding:80px 0}
   .nav-in{height:74px}
   .hero-grid{grid-template-columns:1.1fr .9fr;gap:50px}
-  .cf-grid{grid-template-columns:repeat(3,1fr)}
+  .cf-grid{grid-template-columns:repeat(3,1fr);text-align:center}
   .cf-item{display:block}
-  .trust-grid{grid-template-columns:repeat(4,1fr)}
-  .process-grid{grid-template-columns:repeat(3,1fr)}
-  .srv-grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+  .srv-grid{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
   .works-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
   .work-card img{height:220px}
   .quote-box{grid-template-columns:1.2fr 0.8fr}
@@ -282,12 +339,13 @@ footer p{margin-bottom:8px;color:#fff}
 </head>
 <body>
 
+<!-- 導航 -->
 <nav class="nav">
   <div class="wrap nav-in">
     <div class="brand-logo">
-      <img src="assets/logo.png" alt="Weclean 標誌">
+      <img src="assets/logo.png" alt="DCe 標誌">
       <div class="brand-txt">
-        <b>Weclean 專業清潔</b>
+        <b>DCe 專業清潔</b>
         <span>24小時 · 港九新界</span>
       </div>
     </div>
@@ -298,21 +356,22 @@ footer p{margin-bottom:8px;color:#fff}
       <a href="#reviews">好評</a>
     </div>
     <div class="nav-cta">
-      <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-fb">FB</a>
-      <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="btn btn-ig">IG</a>
+      <a href="https://www.facebook.com/share/1GbJR6wmiv/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-fb">FB</a>
+      <a href="Https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="btn btn-ig">IG</a>
       <a href="tel:+85262572787" class="btn btn-primary">📞</a>
-      <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2Weclean%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
+      <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2DCe%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa">WhatsApp</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
       <div class="hero-logo-card">
-        <img src="assets/logo.png" alt="Weclean 專業清潔">
+        <img src="assets/logo.png" alt="DCe 專業清潔">
         <div class="h-txt">
-          <h2>Weclean 專業冷氣及清潔團隊</h2>
+          <h2>DCe 專業冷氣及清潔團隊</h2>
           <p>全港 18 區信賴首選 ｜ 明碼實價</p>
         </div>
       </div>
@@ -335,13 +394,13 @@ footer p{margin-bottom:8px;color:#fff}
       <p>提供冷氣 A/B 雙計劃深層清洗、家居清潔、除甲醛及長效滅蟲，隨時預約，即日上門。</p>
       
       <div class="social-proof-bar">
-        <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb">👍 瀏覽 Facebook 專頁</a>
-        <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="social-btn ig">📷 追蹤 Instagram</a>
+        <a href="https://www.facebook.com/share/1GbJR6wmiv/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb">👍 瀏覽 Facebook 專頁</a>
+        <a href="Https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener" class="social-btn ig">📷 追蹤 Instagram</a>
       </div>
 
-      <div class="hero-btns">
-        <a href="#quote" class="btn btn-primary" style="padding:12px 18px; font-size:13.5px;">⚡ 立即取得報價</a>
-        <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2Weclean%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa" style="padding:12px 18px; font-size:13.5px;">💬 立即 WhatsApp</a>
+      <div class="hero-btns" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;">
+        <a href="#quote" class="btn btn-primary" style="padding:10px 18px; font-size:13.5px;">⚡ 立即取得報價</a>
+        <a href="https://wa.me/85262572787?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2DCe%E6%9C%8D%E5%8B%99" target="_blank" rel="noopener" class="btn btn-wa" style="padding:10px 18px; font-size:13.5px;">💬 WhatsApp 查詢</a>
       </div>
     </div>
     <div>
@@ -354,6 +413,7 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </header>
 
+<!-- 核心保證條 -->
 <div class="core-features">
   <div class="wrap cf-grid">
     <div class="cf-item"><b>⏱️ 24小時服務</b> <span>全天候隨時預約，即日可約</span></div>
@@ -362,38 +422,7 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </div>
 
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-tag">WHY US</span>
-      <h2>為什麼客戶信賴 Weclean</h2>
-      <p>專業技術、透明報價、貼心服務，為每位客戶提供安心清潔體驗</p>
-    </div>
-    <div class="trust-grid">
-      <div class="trust-card">
-        <div class="icon">✅</div>
-        <h3>明碼實價</h3>
-        <p>先報價、後施工，清楚列明每項收費，沒有藏在細節中的額外費用。</p>
-      </div>
-      <div class="trust-card">
-        <div class="icon">🧼</div>
-        <h3>專業設備</h3>
-        <p>採用高壓清洗、消毒、除霉與除蟎技術，提升清潔效能與衛生安全。</p>
-      </div>
-      <div class="trust-card">
-        <div class="icon">📍</div>
-        <h3>全港覆蓋</h3>
-        <p>遍佈港九新界，安排靈活，覆蓋範圍廣，適合住宅與商戶需求。</p>
-      </div>
-      <div class="trust-card">
-        <div class="icon">💬</div>
-        <h3>售後跟進</h3>
-        <p>完成後提供細心跟進與保養建議，確保客戶長期維持清潔成果。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- 服務項目 -->
 <section id="services">
   <div class="wrap">
     <div class="sec-head">
@@ -404,7 +433,7 @@ footer p{margin-bottom:8px;color:#fff}
     <div class="srv-grid">
       <div class="srv-card featured">
         <h3>❄️ 冷氣機深層清洗（A/B計劃）</h3>
-        <p>全拆式高壓清洗，徹底去除霉菌與異味，提升室內空氣質素。</p>
+        <p>全拆式高壓清洗，徹底去除霉菌與異味。</p>
         <div class="price-list">
           <b>A計劃（深層清洗＋消毒）：</b>
           1部 $680 ｜ 2部 $1,080 ｜ 3部 $1,250 ｜ 4部 $1,500 ｜ 5部 $1,750 ｜ 6部 $2,000 ｜ 7部 $2,250 ｜ 8部 $2,500<br><br>
@@ -412,10 +441,24 @@ footer p{margin-bottom:8px;color:#fff}
           1部 $730 ｜ 2部 $1,200 ｜ 3部 $1,500 ｜ 4部 $1,850 ｜ 5部 $2,050 ｜ 6部 $2,300 ｜ 7部 $2,550 ｜ 8部 $2,800
         </div>
       </div>
-      <div class="srv-card">
-        <h3>🏠 家居清潔與除甲醛</h3>
-        <p>全屋深層清潔、入伙前後執整及專業光觸媒除甲醛服務，讓新居空氣清新，母嬰安心。</p>
+
+      <!-- 更新後的 DCe 震撼破底價除甲醛服務卡片 -->
+      <div class="srv-card featured">
+        <h3>✨ DCe 專業除甲醛服務（全港震撼最低價）</h3>
+        <p>承諾全港最平！日本進口 ECO-C 無光觸媒，平民化收費，嬰幼兒安心入屋。</p>
+        <div class="price-list">
+          <b>💥 震撼破底價收費標準：</b>
+          • <b>300呎或以下 (最低消費)：</b> 標準 $600 ｜ 升級ECO-C $880<br>
+          • <b>301 - 500呎：</b> 標準 $880 ｜ 升級ECO-C $1,380<br>
+          • <b>501 - 700呎：</b> 標準 $1,280 ｜ 升級ECO-C $1,880<br>
+          • <b>701 - 900呎：</b> 標準 $1,680 ｜ 升級ECO-C $2,480<br>
+          • <b>1,100呎以上：</b> 標準 $1.8/呎 ｜ 升級ECO-C $2.8/呎<br><br>
+          <b>🎁 獨家殺手鐧優惠：</b><br>
+          ✅ <b>施工前後雙重檢測 $0 (全免)</b>（幫你慳回 $500 檢測費！）<br>
+          ✅ 偏遠區交通優惠（東涌/馬灣/元朗/錦田 +$200，愉景灣 +$300）
+        </div>
       </div>
+
       <div class="srv-card">
         <h3>🐜 家居滅蟲與床褥梳化清洗</h3>
         <p>高效微米級噴霧滅蟲（曱甴、木蝨等）及 Karcher 高溫蒸氣除蟎，守護全家健康。</p>
@@ -424,33 +467,7 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-tag">PROCESS</span>
-      <h2>簡單三步驟，快速安排服務</h2>
-      <p>從查詢、預約到施工，我們都保持高效率與清晰溝通</p>
-    </div>
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="icon">1</div>
-        <h3>查詢報價</h3>
-        <p>透過 WhatsApp、電話或網站報價計算器，快速獲取服務建議與參考價格。</p>
-      </div>
-      <div class="process-card">
-        <div class="icon">2</div>
-        <h3>安排上門</h3>
-        <p>依照你的地區與時間，安排適合的工程師到場，為你提供準時專業服務。</p>
-      </div>
-      <div class="process-card">
-        <div class="icon">3</div>
-        <h3>完成跟進</h3>
-        <p>施工後提供保養建議與售後支援，讓你享受長久清潔效果與安心感。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- 屋苑服務實拍紀錄 -->
 <section id="works" class="works-sec">
   <div class="wrap">
     <div class="sec-head">
@@ -491,6 +508,7 @@ footer p{margin-bottom:8px;color:#fff}
   </div>
 </section>
 
+<!-- 即時報價 -->
 <section id="quote" class="quote-sec">
   <div class="wrap">
     <div class="sec-head">
@@ -552,7 +570,7 @@ footer p{margin-bottom:8px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addOutdoor" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:700">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -563,7 +581,7 @@ footer p{margin-bottom:8px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addBath" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:700">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -574,7 +592,7 @@ footer p{margin-bottom:8px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addWashing" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:700">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -585,7 +603,7 @@ footer p{margin-bottom:8px;color:#fff}
             </div>
             <div class="addon-qty-box">
               <input type="number" id="addKitchen" min="0" max="5" value="0">
-              <span style="font-size:12px;font-weight:700">部</span>
+              <span style="font-size:12px;font-weight:600">部</span>
             </div>
           </div>
 
@@ -613,42 +631,44 @@ footer p{margin-bottom:8px;color:#fff}
           💡 <b>溫馨提示：</b>如屬「嵌入式 / 隱藏式分體冷氣」，因施工較繁複需額外特別收費，預約時會由師傅另行報價。
         </div>
 
-        <a href="#" id="waBtn" target="_blank" rel="noopener" class="btn btn-wa" style="background:#fff;color:var(--wa);width:100%;text-align:center;justify-content:center;margin-top:12px;padding:12px 18px;font-size:13px;">📲 立即 WhatsApp 查詢</a>
+        <a href="#" id="waBtn" target="_blank" rel="noopener" class="btn btn-wa" style="background:#fff;color:var(--wa);width:100%;text-align:center;justify-content:center;margin-top:12px;padding:12px;font-size:14px;">💬 立即 WhatsApp 預約</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ 客戶真實好評區塊 ============ -->
 <section id="reviews" class="reviews-sec">
   <div class="wrap">
     <div class="sec-head">
       <span class="sec-tag">CUSTOMER REVIEWS</span>
       <h2>客戶真實好評與口碑見證</h2>
-      <p>感謝各區客戶對 Weclean 專業服務的真心推薦與五星好評</p>
+      <p>感謝各區客戶對 DCe 專業服務的真心推薦與五星好評</p>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
-        <img src="assets/review_1.jpg" alt="Weclean 客戶好評見證 1">
+        <img src="assets/review_1.jpg" alt="DCe 客戶好評見證 1">
       </div>
       <div class="review-card">
-        <img src="assets/review_2.jpg" alt="Weclean 客戶好評見證 2">
+        <img src="assets/review_2.jpg" alt="DCe 客戶好評見證 2">
       </div>
       <div class="review-card">
-        <img src="assets/review_3.jpg" alt="Weclean 客戶好評見證 3">
+        <img src="assets/review_3.jpg" alt="DCe 客戶好評見證 3">
       </div>
     </div>
   </div>
 </section>
 
+<!-- 頁腳 -->
 <footer>
   <div class="wrap">
-    <p><strong>Weclean 專業清潔及冷氣清洗服務</strong></p>
+    <p><strong>DCe 專業清潔及冷氣清洗服務</strong></p>
     <p>24小時服務 ｜ 港九新界 18區全覆蓋 ｜ 無隱藏式收費</p>
     <div class="footer-socials">
-      <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/share/1GbJR6wmiv/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+      <a href="Https://www.instagram.com/wecleannnn?obrf=YXVreGRteTlvYTJj" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <p style="font-size:11px;opacity:.7;margin-top:10px">© 2026 Weclean. All Rights Reserved.</p>
+    <p style="font-size:11px;opacity:.7;margin-top:10px">© 2026 DCe. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -742,7 +762,7 @@ function update() {
   const tunnel = parseInt(AREA.value);
   const total = base + addTotal + tunnel;
 
-  let html = `<div class="q-line"><span>${plan==='planB'?'B計劃（銀離子防霉）':'A計劃（深層清洗）'} × ${totalQty}部</span><b>$${base}</b></div>`;
+  let html = `<div class="q-line"><span>${plan==='planB'?'B計劃（銀離子防霉）':'A計劃（深層清洗）'} × ${total}部</span><b>$${base}</b></div>`;
   
   let typesDetail = [];
   if (s > 0) typesDetail.push(`分體${s}部`);
@@ -758,7 +778,7 @@ function update() {
   html += `<div class="q-line total"><span>參考總價</span><b>$${total}</b></div>`;
   QLINES.innerHTML = html;
 
-  let msg = `你好，我想預約 Weclean 服務：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${totalQty} 部\n`;
+  let msg = `你好，我想預約 DCe 服務：\n• 方案：${plan==='planB'?'B計劃':'A計劃'} 共 ${total} 部\n`;
   if (typesDetail.length > 0) msg += `• 機型：${typesDetail.join('、')}\n`;
   addons.forEach(a => {
     if (a.qty > 0) msg += `• 附加：${a.name} × ${a.qty}部\n`;
