@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Weclean 專業清潔及冷氣清洗服務 | 24小時服務 港九新界 無隱藏式收費</title>
-<meta name="description" content="Weclean 專業冷氣深層清洗、A/B計劃、家居清潔、除甲醛與床褥梳化清洗服務。24小時服務，港九新界18區全覆蓋，明碼實價，無隱藏式收費。">
+<title>Weclean 專業清潔及冷氣清洗服務 | 冬季8折優惠 24小時服務</title>
+<meta name="description" content="Weclean 專業冷氣深層清洗冬日8折優惠、A/B計劃、家居清潔、除甲醛與床褥梳化清洗服務。24小時服務，港九新界18區全覆蓋，明碼實價。">
 <link rel="icon" href="assets/logo_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -214,7 +214,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
   font-size:12px;font-weight:700;color:#fff;box-shadow:var(--shadow-sm);
 }
 .social-btn.fb{background:var(--fb)}
-.social-btn.ig{background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)}
+.social-btn.ig{background:radial-gradient(circle at 30% 107%, #fdf497 0%, #df3484 45%, #7624cb 90%)}
 
 /* 核心保證條 */
 .core-features{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px 0}
@@ -236,6 +236,19 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 .price-list{background:var(--blue-softer);border-radius:10px;padding:12px;font-size:13px;margin-top:10px;border:1px solid var(--line);line-height:1.6}
 .price-list b{display:block;color:var(--blue-dark);margin-bottom:4px}
 
+/* 冬季優惠專屬標籤 */
+.winter-promo-badge {
+  display: inline-block;
+  background: #E1F5FE;
+  color: #0288D1;
+  border: 1px dashed #0288D1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
 /* ============ 屋苑實拍紀錄 ============ */
 .works-sec{background:linear-gradient(180deg, rgba(234,244,252,.5) 0%, rgba(156,203,74,.08) 100%)}
 .works-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
@@ -247,7 +260,7 @@ h1,h2,h3{color:var(--ink);line-height:1.25;font-weight:900}
 
 /* ============ 四合一綜合報價器 ============ */
 .quote-sec{background:transparent}
-.quote-box{background:rgba(255,255,255,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
+.quote-box{background:rgba(255,255,258,.98);border-radius:var(--r);box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:1fr;overflow:hidden}
 .q-form{padding:20px}
 .q-sum{background:linear-gradient(135deg, var(--blue-dark), var(--blue));color:#fff;padding:20px;display:flex;flex-direction:column}
 .field{margin-bottom:16px}
@@ -406,6 +419,10 @@ footer p{margin-bottom:8px;color:#fff}
       <div class="badge-top"><span class="pulse"></span> 24小時服務 ｜ 港九新界 18區全覆蓋</div>
       <h1>專業冷氣清洗與<br><span>全方位家居清潔服務</span></h1>
       
+      <div>
+        <span class="highlight-price-tag">❄️ 【冬日限定優惠】冷氣清洗 A/B 計劃享 8 折！(加配項目維持原價)</span>
+      </div>
+
       <div class="live-counter-badge">
         <div class="num" id="counterNum">0</div>
         <div class="txt">
@@ -414,11 +431,7 @@ footer p{margin-bottom:8px;color:#fff}
         </div>
       </div>
 
-      <div>
-        <span class="highlight-price-tag">🛡️ 信心保證：明碼實價 ‧ 絕對無隱藏式收費</span>
-      </div>
-
-      <p>提供冷氣 A/B 雙計劃深層清洗、家居清潔、除甲醛及床褥梳化清洗，隨時預約，即日上門。</p>
+      <p>提供冷氣 A/B 雙計劃深層清洗（現正推出冬季 8 折優惠！）、家居清潔、除甲醛及床褥梳化清洗，隨時預約，即日上門。</p>
       
       <div class="social-proof-bar">
         <a href="https://www.facebook.com/share/1HfaDK8Qh5/?mibextid=wwXIfr" target="_blank" rel="noopener" class="social-btn fb">👍 瀏覽 Facebook 專頁</a>
@@ -459,13 +472,15 @@ footer p{margin-bottom:8px;color:#fff}
     </div>
     <div class="srv-grid">
       <div class="srv-card featured">
+        <div class="winter-promo-badge">❄️ 冬季限定：A/B計劃主方案全面 8 折！</div>
         <h3>❄️ 冷氣機深層清洗（A/B計劃）</h3>
-        <p>全拆式高壓清洗，徹底去除霉菌與異味。</p>
+        <p>全拆式高壓清洗，徹底去除霉菌與異味。冬季限時特惠中！</p>
         <div class="price-list">
-          <b>A計劃（深層清洗＋消毒）：</b>
-          1部 $680 ｜ 2部 $1,080 ｜ 3部 $1,250 ｜ 4部 $1,500 ｜ 5部 $1,750 ｜ 6部 $2,000 ｜ 7部 $2,250 ｜ 8部 $2,500<br><br>
-          <b>B計劃（深層清洗＋消毒＋銀離子防霉塗層，維持約1年）：</b>
-          1部 $730 ｜ 2部 $1,200 ｜ 3部 $1,500 ｜ 4部 $1,850 ｜ 5部 $2,050 ｜ 6部 $2,300 ｜ 7部 $2,550 ｜ 8部 $2,800
+          <b>A計劃（深層清洗＋消毒）👉 冬季 8 折優惠：</b>
+          1部 $544 (原$680) ｜ 2部 $864 (原$1,080) ｜ 3部 $1,000 (原$1,250) ｜ 4部 $1,200 (原$1,500) ｜ 5部 $1,400 (原$1,750) ｜ 6部 $1,600 (原$2,000) ｜ 7部 $1,800 (原$2,250) ｜ 8部 $2,000 (原$2,500)<br><br>
+          <b>B計劃（深層清洗＋消毒＋銀離子防霉塗層）👉 冬季 8 折優惠：</b>
+          1部 $584 (原$730) ｜ 2部 $960 (原$1,200) ｜ 3部 $1,200 (原$1,500) ｜ 4部 $1,480 (原$1,850) ｜ 5部 $1,640 (原$2,050) ｜ 6部 $1,840 (原$2,300) ｜ 7部 $2,040 (原$2,550) ｜ 8部 $2,240 (原$2,800)<br><br>
+          <span style="font-size:11.5px;color:var(--muted)">*(註：優惠僅適用於 Plan A / Plan B 主方案，所有下方加配服務維持原價計費)*</span>
         </div>
       </div>
 
@@ -550,7 +565,7 @@ footer p{margin-bottom:8px;color:#fff}
     <div class="sec-head">
       <span class="sec-tag">INSTANT QUOTE</span>
       <h2>四合一綜合即時報價器</h2>
-      <p>勾選您需要的服務項目並填寫數量，系統將自動為您綜合計算總參考價</p>
+      <p>勾選您需要的服務項目並填寫數量，系統將自動為您計算冷氣冬季 8 折優惠與總參考價</p>
     </div>
     <div class="quote-box">
       <div class="q-form">
@@ -559,14 +574,14 @@ footer p{margin-bottom:8px;color:#fff}
         <div class="service-section-box">
           <label class="service-header-row">
             <input type="checkbox" id="chk-ac" checked onchange="toggleService('ac')">
-            <span>❄️ 專業冷氣深層清洗</span>
+            <span>❄️ 專業冷氣深層清洗 <span style="color:#e91e63; font-size:12px; font-weight:700; margin-left:6px;">(🔥 冬季限定 8 折優惠中)</span></span>
           </label>
           <div id="body-ac" class="service-content-body show">
             <div class="field">
-              <label>選擇冷氣清洗計劃</label>
+              <label>選擇冷氣清洗計劃（主方案享 8 折）</label>
               <select id="planType">
-                <option value="planA">A計劃（深層清洗＋消毒）</option>
-                <option value="planB">B計劃（深層清洗＋銀離子防霉保約一年）</option>
+                <option value="planA">A計劃（深層清洗＋消毒）- 冬季 8 折</option>
+                <option value="planB">B計劃（深層清洗＋銀離子防霉保約一年）- 冬季 8 折</option>
               </select>
             </div>
             <div class="field">
@@ -579,7 +594,7 @@ footer p{margin-bottom:8px;color:#fff}
               </div>
             </div>
             <div class="field">
-              <label>附加項目（可選）</label>
+              <label>附加項目（維持原價，不參與 8 折）</label>
               <div class="addon-row"><div class="addon-info"><b>室外機清洗</b><span>每部 $80</span></div><div class="addon-qty-box"><input type="number" id="addOutdoor" min="0" max="5" value="0"><span>部</span></div></div>
               <div class="addon-row"><div class="addon-info"><b>浴室寶 / 抽氣扇</b><span>每部 $280</span></div><div class="addon-qty-box"><input type="number" id="addBath" min="0" max="5" value="0"><span>部</span></div></div>
               <div class="addon-row"><div class="addon-info"><b>清洗洗衣機</b><span>每部 $150</span></div><div class="addon-qty-box"><input type="number" id="addWashing" min="0" max="5" value="0"><span>部</span></div></div>
@@ -676,7 +691,7 @@ footer p{margin-bottom:8px;color:#fff}
         <h3>📋 綜合報價單</h3>
         <div id="qLines" style="margin:16px 0"></div>
         <div style="font-size:11.5px;opacity:.9;margin-bottom:10px;background:rgba(255,255,255,.12);padding:8px 10px;border-radius:6px;line-height:1.5">
-          🛡️ <b>30日後售後無憂保障</b><br>所有服務均享貼心售後跟進，安心過四季！
+          ❄️ <b>冷氣 Plan A / B 冬季 8 折優惠實施中</b><br>加配項目維持原價，所有服務均享 30 日售後無憂保障！
         </div>
         <div style="font-size:11.5px;opacity:.8;margin-bottom:10px">✨ 24小時服務 ｜ 港九新界 ｜ 無隱藏式收費</div>
         
@@ -806,24 +821,27 @@ document.querySelectorAll('input, select').forEach(el => {
 function update() {
   let total = 0;
   let html = '';
-  let msg = `你好，我想預約 Weclean 綜合服務：\n`;
+  let msg = `你好，我想預約 Weclean 冬季優惠綜合服務：\n`;
 
   const tunnel = parseInt(AREA.value) || 0;
   const areaName = tunnel > 0 ? '港島區（含隧道費 +$60）' : '九龍/新界/其他地區';
 
   let hasAnyService = false;
 
-  // 1. 冷氣清洗
+  // 1. 冷氣清洗（主方案享 8 折，加配項目維持原價）
   if (document.getElementById('chk-ac').checked) {
     hasAnyService = true;
     const plan = PLAN_TYPE.value;
     const qty = parseInt(AC_RANGE.value) || 1;
-    const base = PRICES_AC[plan][qty] || PRICES_AC[plan][8];
-    total += base;
+    const originalBase = PRICES_AC[plan][qty] || PRICES_AC[plan][8];
+    const discountedBase = Math.round(originalBase * 0.8); // 計算 8 折後的金額
+    total += discountedBase;
 
-    html += `<div class="q-line"><span>${plan==='planB'?'冷氣B計劃（防霉）':'冷氣A計劃'} × ${qty}部</span><b>$${base}</b></div>`;
-    msg += `• 冷氣清洗：${plan==='planB'?'B計劃':'A計劃'} 共 ${qty} 部 ($${base})\n`;
+    const planName = plan === 'planB' ? '冷氣B計劃（防霉）' : '冷氣A計劃';
+    html += `<div class="q-line"><span>❄️ ${planName} × ${qty}部 <span style="font-size:11px;color:#9CCB4A">(冬季8折)</span></span><b>$${discountedBase} <s style="font-size:11px;color:rgba(255,255,255,.6)">$${originalBase}</s></b></div>`;
+    msg += `• 冷氣清洗：${planName} 冬季8折 共 ${qty} 部 (折後 $${discountedBase}, 原價 $${originalBase})\n`;
 
+    // 加配項目（維持原價計算，不打折）
     const addons = [
       { name: '室外機清洗', qty: parseInt(ADD_OUTDOOR.value) || 0, price: 80 },
       { name: '浴室寶/抽氣扇', qty: parseInt(ADD_BATH.value) || 0, price: 280 },
@@ -835,7 +853,7 @@ function update() {
       if (a.qty > 0) {
         const sub = a.qty * a.price;
         total += sub;
-        html += `<div class="q-line"><span>&nbsp;&nbsp;+ ${a.name} × ${a.qty}</span><b>$${sub}</b></div>`;
+        html += `<div class="q-line"><span>&nbsp;&nbsp;+ ${a.name} × ${a.qty} (原價)</span><b>$${sub}</b></div>`;
         msg += `  - ${a.name} × ${a.qty} ($${sub})\n`;
       }
     });
@@ -905,7 +923,7 @@ function update() {
     } else {
       msg += `• 地區：${areaName}\n`;
     }
-    html += `<div class="q-line total"><span>綜合參考總價</span><b>$${total}</b></div>`;
+    html += `<div class="q-line total"><span>綜合參考總價 (已含冬季優惠)</span><b>$${total}</b></div>`;
     msg += `• 綜合參考總價：$${total}\n請幫手安排！`;
   }
 
